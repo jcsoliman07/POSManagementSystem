@@ -10,7 +10,7 @@ class Role extends Model
     //
     protected $fillable = ['name'];
 
-    public function user(): HasMany
+    public function users(): HasMany
     {  
 
         return $this->hasMany(User::class); 

@@ -10,7 +10,7 @@ class Category extends Model
     //
     protected $guarded = [];
 
-    public function product():HasMany
+    public function products():HasMany
     {
         return $this->hasMany(Products::class);
     }
