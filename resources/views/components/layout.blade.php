@@ -47,7 +47,7 @@
 <body class="bg-custom-light-gray font-sans flex h-screen overflow-hidden">
 
     <!-- Sidebar Navigation -->
-    <x-nav-link />
+    <x-navigation.nav-link />
 
     <!-- Main Content Area -->
     <div class="content-area flex-1 overflow-auto">

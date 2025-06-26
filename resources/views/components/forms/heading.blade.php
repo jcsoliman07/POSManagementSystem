@@ -1,1 +1,1 @@
-<h2 class="text-lg font-semibold mb-4">{{ $slot }}</h2>
+<h2 class="text-3xl font-semibold mb-6">{{ $slot }}</h2>

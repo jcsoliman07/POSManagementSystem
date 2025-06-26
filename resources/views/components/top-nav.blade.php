@@ -5,7 +5,8 @@
         <button id="toggleSidebar" class="md:hidden mr-4 text-gray-600">
             <i class="fas fa-bars text-xl"></i>
         </button>
-        <h1 class="text-xl font-semibold">Dashboard Overview</h1> <!--This will be Logo-->
+        <x-nav-heading>Dashboard Overview</x-nav-heading>
+        {{-- <h1 class="text-xl font-semibold">Dashboard Overview</h1> <!--This will be Logo--> --}}
     </div>
     <div class="flex items-center space-x-6">
         <div class="flex items-center">

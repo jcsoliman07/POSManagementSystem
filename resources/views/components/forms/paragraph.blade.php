@@ -1,1 +1,1 @@
-<p class="text-gray-600">{{ $slot }}</p>
+<p class="text-md text-gray-600 mb-6 border-b pb-2">{{ $slot }}</p>
