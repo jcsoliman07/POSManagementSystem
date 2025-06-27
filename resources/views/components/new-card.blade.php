@@ -12,18 +12,19 @@
             <h3 class="font-medium text-lg">{{ $category->name }}</h3>
 
         </div>
-
+        <!-- Edit and Destroy Modal Button-->   
         <div class="flex space-x-2">
+            <div>
+                <x-buttons.button-edit-category-modal icon="fas fa-edit" :category="$category"/>
+                <!--Edit Category Modal Form -->
+                <x-modal.edit-modal-category :category="$category" />
 
-            <button class="text-blue-500 hover:text-blue-700">
-                <i class="fas fa-edit"></i>
-            </button>
-            <button class="text-red-500 hover:text-red-700">
-                <i class="fas fa-trash"></i>
-            </button>
+                <x-buttons.button-destroy-modal icon="fas fa-trash" :category="$category"/> 
+                <!--Destroy Category Modal Form -->
+                <x-modal.destroy-modal-category :category="$category" />
 
-        </div>
-
+            </div>
+        </div>  
     </div>
 
     <div class="p-4">
