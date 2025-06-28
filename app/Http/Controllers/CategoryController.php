@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,6 @@ class CategoryController extends Controller
     {
         //
         $categories = Category::withCount('products')->latest()->get();
-
         return view('category.index', compact('categories'));
     }
 
@@ -24,7 +24,6 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        // return view('category.index');
     }
 
     /**
@@ -32,17 +31,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //validate
-        request()->validate([
-            'category' => ['required', 'string', 'max:255'],
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'category' => ['required', 'string', 'max:255', 'unique:categories,name'], // Added unique rule
         ]);
 
-        //store
+        // Create a new Category instance
         Category::create([
-            'name' => request()->input('category'),
+            'name' => $validatedData['category'], // Use validated data
         ]);
 
-        //redirect
+        // Redirect back with a success message
         return redirect('/category')->with('success', "Category added successfully!");
     }
 
@@ -52,6 +51,8 @@ class CategoryController extends Controller
     public function show(string $id)
     {
         //
+        // $category = Category::findOrFail($id); // Find the category or throw 404
+        // return view('category.show', compact('category')); // Assuming category.show blade file
     }
 
     /**
@@ -65,24 +66,24 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category) //Route Binding
     {
-        //
-        // Dump to verify if request is hitting
-        // logger('Update hit');
-        // dd($request->all());
-
-        //validate
-        $request->validate([
-        'category' => 'required|string|max:255',
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'category' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('categories', 'name')->ignore($category->id),
+            ],
         ]);
         
-        //store
+        // Update the category name
         $category->update([
-            'name' => $request->category,
+            'name' => $validatedData['category'],
         ]);
-
-        //redirect
+        
+        // Redirect back with a success message
         return redirect()->back()->with('success', 'Category updated!');
         
     }
@@ -90,10 +91,9 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category) //Route Binding
     {
         //
-        $category = Category::findOrFail($id);
         $category->delete();
 
         return redirect()->back()->with('success', 'Category deleted successfully!');
