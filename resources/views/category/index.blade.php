@@ -5,11 +5,11 @@
         <x-alert.success/>
 
         <x-forms.heading>Category Management</x-forms.heading>
-        <x-forms.paragraph>Manage your Categories here.</x-forms.paragraph>
+        <x-forms.paragraph class="text-md mb-6 border-b pb-2">Manage your Categories here.</x-forms.paragraph>
 
             <div class="mb-4">
-                <x-buttons.button-add-modal>New</x-buttons.button-add-modal>
-                <x-modal.add-new-modal />
+                <x-buttons.button-add-modal target="add-new-category-modal">New</x-buttons.button-add-modal>
+                <x-modal.add-new-category-modal />
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

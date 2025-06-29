@@ -1,7 +1,7 @@
 
 <div class="bg-white rounded-lg shadow-sm p-6">
     <x-forms.heading>Welcome to your POS System</x-forms.heading>
-    <x-forms.paragraph>This is the main content area. You can add your POS components here.</x-forms.paragraph>
+    <x-forms.paragraph class="text-md mb-6 border-b pb-2">This is the main content area. You can add your POS components here.</x-forms.paragraph>
     
     <!-- Status cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">

@@ -11,7 +11,7 @@
         
         <x-navigation.nav-items href="/" :active="request()->is('/')" icon="fas fa-tachometer-alt text-custom-yellow">Dashboard</x-navigation.nav-items>
         <x-navigation.nav-items href="#" icon="fas fa-shopping-cart text-custom-yellow">Order Management</x-navigation.nav-items>
-        <x-navigation.nav-items href="/products" :active="request()->is('category')" icon="fas fa-box-open mr-2 text-custom-yellow">Product Management</x-navigation.nav-items>
+        <x-navigation.nav-items href="/products" :active="request()->is('products')" icon="fas fa-box-open mr-2 text-custom-yellow">Product Management</x-navigation.nav-items>
         <x-navigation.nav-items href="/category" :active="request()->is('category')" icon="fas fa-tags mr-2 text-custom-yellow">Category Management</x-navigation.nav-items>
         <x-navigation.nav-items href="#" icon="fas fa-chart-line text-custom-yellow">Reports & Analytics</x-navigation.nav-items>
         <x-navigation.nav-items href="#" icon="fas fa-user-tie text-custom-yellow">Employee Management</x-navigation.nav-items>

@@ -1,11 +1,28 @@
 
-function toggleModal() {
-    const modal = document.getElementById('add-new-modal');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.classList.add('opacity-100');
-}
+//Open Modal Form Function
+function toggleModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
 
-// Category Modal Form
+    // If it's hidden (opacity-0), show it
+    if (modal.classList.contains('opacity-0')) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+    } 
+    // Otherwise, hide it
+    else {
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+}
+//Close Modal Form Function
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+}
 
 //Update
 function openModalCategory(modalId) {
@@ -42,33 +59,57 @@ function closeModalDestroy(modalId) {
 }
 // 
 
+// Product Category Button
+document.addEventListener('DOMContentLoaded', function () {
+    // Product Category Button
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            // Remove active state from all buttons
+            document.querySelectorAll('.category-btn').forEach(b => {
+                b.classList.remove('bg-custom-yellow', 'text-white');
+            });
 
-function closeModal() {
-    const modal = document.getElementById('add-new-modal');
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-}
+            // Add active state to the clicked button
+            this.classList.add('bg-custom-yellow', 'text-white');
 
-function toggleEditModal() {
-    const modal = document.getElementById('add-new-modal');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.classList.add('opacity-100');
+            // Get clicked category
+            const selectedCategory = this.getAttribute('data-category');
 
-    document.getElementById('category-name-input').value = name;
-    document.getElementById('edit-form').action = `/category/${id}`;
-    document.getElementById('_method').value = 'PUT';
-}
+            // Loop through all product cards
+            document.querySelectorAll('.product-card').forEach(card => {
+                const productCategory = card.getAttribute('data-category');
 
- // Toggle sidebar on mobile
-document.getElementById('toggleSidebar').addEventListener('click', function() {
-    document.querySelector('.sidebar').classList.toggle('hidden');
-    document.querySelector('.content-area').classList.toggle('ml-64');
-});
-
-// Set active state for sidebar items
-document.querySelectorAll('.sidebar-item').forEach(item => {
-    item.addEventListener('click', function() {
-        document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
+                // Show or hide product based on match
+                if (selectedCategory === 'all' || selectedCategory === productCategory) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
     });
 });
+
+// function toggleEditModal() {
+//     const modal = document.getElementById('add-new-modal');
+//     modal.classList.remove('opacity-0', 'pointer-events-none');
+//     modal.classList.add('opacity-100');
+
+//     document.getElementById('category-name-input').value = name;
+//     document.getElementById('edit-form').action = `/category/${id}`;
+//     document.getElementById('_method').value = 'PUT';
+// }
+
+//  // Toggle sidebar on mobile
+// document.getElementById('toggleSidebar').addEventListener('click', function() {
+//     document.querySelector('.sidebar').classList.toggle('hidden');
+//     document.querySelector('.content-area').classList.toggle('ml-64');
+// });
+
+// // Set active state for sidebar items
+// document.querySelectorAll('.sidebar-item').forEach(item => {
+//     item.addEventListener('click', function() {
+//         document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+//         this.classList.add('active');
+//     });
+// });
