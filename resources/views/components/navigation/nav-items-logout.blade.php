@@ -5,6 +5,6 @@
         <div class="sidebar-icon text-xl w-8 text-center mr-3">
             <i class="{{ $icon }}"></i>
         </div>
-        <span class="sidebar-text">{{ $slot }}</span>
+        <button type="submit">{{ $slot }}</button>
     </div>
 </div>

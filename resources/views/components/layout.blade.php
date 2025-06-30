@@ -56,7 +56,6 @@
         <main>
             <div class="space-y-10">
                 <section class="p-6 mt-4">
-                    
                     {{ $slot }}
                 </section>
             </div>

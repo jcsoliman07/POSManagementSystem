@@ -29,7 +29,7 @@
                 <h2 class="text-2xl font-bold text-gray-800 mb-1">Welcome Back</h2>
                 <p class="text-custom-dark-gray mb-6">Sign in to your account</p>
 
-                <x-forms.form action="" method="">
+                <x-forms.form action="/login" method="POST">
                     @csrf
 
                     <div class="mb-4">

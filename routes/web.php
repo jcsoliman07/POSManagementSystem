@@ -1,16 +1,20 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/login', function(){
-    return view('auth.login');
-});
 
-Route::get('/', [RoleController::class, 'index']);
+
+Route::get('/login', [UserController::class, 'create']);
+Route::post('/login', [UserController::class, 'store']);
+Route::post('/logout', [UserController::class, 'destroy'])->name('logout');
+
+Route::get('/dashboard', [DashBoardController::class, 'index'])->name('dashboard');
 
 // Route Product
 // Route::resource('/category', [CategoryController::class, 'indexx']); //Accessing to all method

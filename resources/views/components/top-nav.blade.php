@@ -1,4 +1,3 @@
-@props([''])
 
 <div class="bg-white shadow-sm p-4 flex items-center justify-between">
     <div class="flex items-center">
@@ -10,8 +9,19 @@
     </div>
     <div class="flex items-center space-x-6">
         <div class="flex items-center">
-            <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-full w-8 h-8 mr-2">
-            <span class="hidden md:inline">Admin</span>
+            {{-- <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-full w-8 h-8 mr-2"> --}}
+            <x-forms.paragraph>
+                @switch(auth()->user()->role->name)
+                    @case('super_admin')
+                        Super Administrator
+                        @break
+                    @case('admin')
+                        Administrator
+                        @break
+                    @default
+                        --
+                @endswitch
+            </x-forms.paragraph>
         </div>
     </div>
 </div>
