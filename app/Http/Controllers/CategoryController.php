@@ -96,6 +96,6 @@ class CategoryController extends Controller
         //
         $category->delete();
 
-        return redirect()->back()->with('success', 'Category deleted successfully!');
+        return redirect()->back()->with('warning', 'Category deleted successfully!');
     }
 }

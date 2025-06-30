@@ -9,22 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script src="{{ asset('js/global.js') }}"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'custom-gray': '#1f1f1f',
-                        'custom-yellow': '#E9BB3F',
-                        'custom-light-gray': '#F6F6F6',
-                        'custom-dark-gray': '#979797',
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
         #screen-loader {
             position: fixed;
@@ -61,6 +45,9 @@
 
     <!-- Main Content Area -->
     <div class="content-area flex-1 overflow-auto">
+    <x-alert.success/>
+    <x-alert.warning/>
+    <x-alert.error/>
 
         <!-- Top Navigation -->
         <x-top-nav />

@@ -14,7 +14,7 @@
 
                 <button type="button" 
                         class="text-gray-400 bg-transparent hover:bg-custom-dark-gray hover:text-custom-light-gray rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center" 
-                        onclick="closeModalCategory('edit-modal-category{{ $category->id }}')"> <!-- The Modal will close when it's click -->
+                        onclick="closeModal('edit-modal-category{{ $category->id }}')"> <!-- The Modal will close when it's click -->
                         
                         <i class="fa-solid fa-xmark"></i>
                         <span class="sr-only">Close modal</span>
@@ -37,7 +37,7 @@
                     <!-- Cancel and Save Button -->
                     <div class="mt-4 flex gap-2 justify-end">
                         <x-buttons.button-cancel 
-                            onclick="closeModalCategory('edit-modal-category{{ $category->id }}')"
+                            onclick="closeModal('edit-modal-category{{ $category->id }}')"
                         >
                             Cancel
                         </x-buttons.button-cancel>

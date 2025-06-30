@@ -2,8 +2,6 @@
 
     <x-wrapper>
 
-        <x-alert.success/>
-
         <x-forms.heading>Category Management</x-forms.heading>
         <x-forms.paragraph class="text-md mb-6 border-b pb-2">Manage your Categories here.</x-forms.paragraph>
 

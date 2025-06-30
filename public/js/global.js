@@ -1,3 +1,17 @@
+//Tailwind CSS Customize Color Theme
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                'custom-gray': '#1f1f1f',
+                'custom-yellow': '#E9BB3F',
+                'custom-light-gray': '#F6F6F6',
+                'custom-dark-gray': '#979797',
+            }
+        }
+    }
+}
+
 
 //Open Modal Form Function
 function toggleModal(modalId) {
@@ -25,21 +39,21 @@ function closeModal(modalId) {
 }
 
 //Update
-function openModalCategory(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.remove('opacity-0', 'pointer-events-none');
-        modal.classList.add('opacity-100', 'pointer-events-auto');
-    }
-}
+// function openModalCategory(modalId) {
+//     const modal = document.getElementById(modalId);
+//     if (modal) {
+//         modal.classList.remove('opacity-0', 'pointer-events-none');
+//         modal.classList.add('opacity-100', 'pointer-events-auto');
+//     }
+// }
 
-function closeModalCategory(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.add('opacity-0', 'pointer-events-none');
-        modal.classList.remove('opacity-100', 'pointer-events-auto');
-    }
-}
+// function closeModalCategory(modalId) {
+//     const modal = document.getElementById(modalId);
+//     if (modal) {
+//         modal.classList.add('opacity-0', 'pointer-events-none');
+//         modal.classList.remove('opacity-100', 'pointer-events-auto');
+//     }
+// }
 
 //Destroy
 function openModalDestroy(modalId) {
