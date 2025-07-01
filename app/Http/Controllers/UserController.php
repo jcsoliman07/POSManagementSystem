@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +17,10 @@ class UserController extends Controller
     public function index()
     {
         //
-        // return view('components.layout');
+        $products = Products::latest()->get();
+        $categories = Category::all();
+
+        return view('user.index', compact('products', 'categories'));
     }
 
     /**
@@ -24,7 +29,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('auth.login');
+        
     }
 
     /**
@@ -32,45 +37,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //Validate Data
-        $attributes = $request->validate([
-            'email'     => ['required','email'],
-            'password'  => ['required'],
-        ]);
-
-        $user = User::where('email', $attributes['email'])->first();
-
-        //Validation if Email is Registered
-        if(!$user)
-        {
-            return back()->with('error', 'The Email is not registered!');
-        }
-
-        //Validation if Password is correct
-        if(!Hash::check($attributes['password'], $user->password))
-        {
-            return back()->with('error', 'Incorrect Password. Please input valid credentials!');
-        }
-
-        if (Auth::attempt($attributes)) {
-
-            $request->session()->regenerate();
-            $user = Auth::user();
-
-            switch($user->role->name)
-            {
-                case 'super_admin':
-                case 'admin':
-                    return redirect()->route('dashboard'); //Shared Dashboard for Admin and Super Admin
-                case 'user':
-                    return('Hello from user!');
-                default:
-                    abort(403);
-            }
-        }
-
-        return back()->with('error', 'Login failed. Please try again.');
-
+    
     }
 
     /**
@@ -102,11 +69,6 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
-        //
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
 
-        return redirect('/login');
     }
 }

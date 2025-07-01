@@ -1,4 +1,4 @@
-<x-layout>
+<x-index>
     <div class="bg-white rounded-lg shadow-sm p-6">
         <x-forms.heading>Welcome back,
 
@@ -49,4 +49,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+</x-index>

@@ -4,15 +4,16 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
+Route::get('/user-dashboard', [UserController::class, 'index']);
 
-
-Route::get('/login', [UserController::class, 'create']);
-Route::post('/login', [UserController::class, 'store']);
-Route::post('/logout', [UserController::class, 'destroy'])->name('logout');
+Route::get('/login', [SessionController::class, 'create']);
+Route::post('/login', [SessionController::class, 'store']);
+Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
 
 Route::get('/dashboard', [DashBoardController::class, 'index'])->name('dashboard');
 
@@ -29,6 +30,7 @@ Route::get('/products', [ProductsController::class, 'index']);
 Route::post('/products', [ProductsController::class, 'store']);
 Route::put('/products/{product}', [ProductsController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [ProductsController::class, 'destroy'])->name('products.destroy');
+
 
 
 

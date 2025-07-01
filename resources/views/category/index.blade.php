@@ -1,4 +1,4 @@
-<x-layout>
+<x-index>
 
     <x-wrapper>
 

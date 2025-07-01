@@ -12,7 +12,6 @@ tailwind.config = {
     }
 }
 
-
 //Open Modal Form Function
 function toggleModal(modalId) {
     const modal = document.getElementById(modalId);
