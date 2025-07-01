@@ -48,7 +48,7 @@
 
             <!-- Product Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                @foreach ($products as $product)
+                @forelse ($products as $product)
                     <div data-category="{{ $product->category->name }}" class="product-card group bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 hover:translate-y-1 transition-transform duration-300 mb-8 ">
                         <div class="relative h-48">
                             <!--  AYUSIN KITA AFTER KO SA USER MODULE  -->
@@ -77,8 +77,14 @@
                         </div>
                     </div>
                     <x-modal.edit-modal-product :product="$product" :categories="$categories"/>
-                @endforeach
+                @empty
             </div>
+                <!-- If the product is empty -->
+                <div class="flex justify-center items-center h-full">
+                    <x-forms.paragraph> No Product yet </x-forms.paragraph>
+                </div>
+
+                @endforelse
         </main>
     </x-wrapper>
 

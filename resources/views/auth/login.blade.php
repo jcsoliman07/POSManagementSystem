@@ -28,6 +28,10 @@
             <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
                 <h2 class="text-2xl font-bold text-gray-800 mb-1">Welcome Back</h2>
                 <p class="text-custom-dark-gray mb-6">Sign in to your account</p>
+                
+                <x-alert.error-message/>
+                {{-- <x-alert.error-message field="email"/>
+                <x-alert.error-message field="password"/> --}}
 
                 <x-forms.form action="/login" method="POST">
                     @csrf

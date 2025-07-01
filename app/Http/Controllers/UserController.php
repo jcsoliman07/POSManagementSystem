@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -36,7 +38,20 @@ class UserController extends Controller
             'password'  => ['required'],
         ]);
 
-        //KULANG PA TO NG VERIFICATION IF USER IS EXIST OR PASSWORD IS THE ACCOUNT PASSWORD
+        $user = User::where('email', $attributes['email'])->first();
+
+        //Validation if Email is Registered
+        if(!$user)
+        {
+            return back()->with('error', 'The Email is not registered!');
+        }
+
+        //Validation if Password is correct
+        if(!Hash::check($attributes['password'], $user->password))
+        {
+            return back()->with('error', 'Incorrect Password. Please input valid credentials!');
+        }
+
         if (Auth::attempt($attributes)) {
 
             $request->session()->regenerate();
@@ -54,7 +69,7 @@ class UserController extends Controller
             }
         }
 
-        return back()->withErrors(['email', 'Invalid Credentials']);
+        return back()->with('error', 'Login failed. Please try again.');
 
     }
 
