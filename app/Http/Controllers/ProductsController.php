@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Products;
 use Illuminate\Http\Request;
@@ -20,16 +21,10 @@ class ProductsController extends Controller
         return view('products.index', compact( 'products','categories'));
     }
 
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
         //Validate Data to Entry
-        $validatedData = $request->validate([
-            'product'           => ['required', 'string', 'max:255', 'unique:products,name'], //maps 'name' in prodcuts table name
-            'price'             => ['required', 'numeric', 'min:0'],
-            'category'          => ['required', 'exists:categories,id'], //Connected to the category_id in db
-            'description'       => ['required', 'string'],
-            'image'             => ['required', 'file', File::types(['png', 'jpg', 'jpeg'])],
-        ]);
+        $validatedData = $request->validated(); //Data is already validated
 
         //Store the uploaded image in 'storage/app/public/logos'
         $logopath = $request->file('image')->store('logos', 'public');
