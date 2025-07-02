@@ -26,7 +26,7 @@ class StoreProductRequest extends FormRequest
             'product'           => ['required', 'string', 'max:255', 'unique:products,name'], //maps 'name' in prodcuts table name
             'price'             => ['required', 'numeric', 'min:0'],
             'category'          => ['required', 'exists:categories,id'], //Connected to the category_id in db
-            'description'       => ['required', 'string'],
+            'description'       => ['required'],
             'image'             => ['required', 'file', File::types(['png', 'jpg', 'jpeg'])],
         ];
     }
@@ -34,12 +34,12 @@ class StoreProductRequest extends FormRequest
     public function messages() :array
     {
         return[
-            'product.required' => ['Please enter a product name.'],
-            'price.required' => ['Please enter a price.'],
-            'price.numeric' => ['Please enter a valid number'],
-            'product.min' => ['Price cannot be negative'],
-            'image.file' => ['Upload file must be a file.'],
-            'image.mimes' => ['Only PNG, JPG, or JPEG images are allowed'],
+            'product.required'      => 'Please enter a product name.',
+            'price.required'        => 'Please enter a price.',
+            'price.numeric'         => 'Please enter a valid number',
+            'product.min'           => 'Price cannot be negative',
+            'image.file'            => 'Upload file must be a file.',
+            'image.mimes'           => 'Only PNG, JPG, or JPEG images are allowed',
         ];
     }
 }

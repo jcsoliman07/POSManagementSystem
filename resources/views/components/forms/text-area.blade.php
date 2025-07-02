@@ -1,19 +1,24 @@
 @props(['label', 'name', 'holder', 'value' => null])
 
 
-@php
+@php    
+    $rawValue = old($name, $value);
+    $textValue = is_array($rawValue) ? '' :$rawValue;
+
+
     $defaults =[
-        'title'     => $name,
-        'name'      => $name,
-        'holder'    => $holder,
-        'class'     => 'block w-full p-2.5 bg-custom-light-gray border border-custom-dark-gray rounded-lg block w-full p-2.5 dark:placeholder-gray-400',
-        'rows'      => 4,
-    ]
+        'id'                => $name,
+        'title'             => $name,
+        'name'              => $name,
+        'placeholder'       => is_array($holder) ? '' : $holder,
+        'class'             => 'block w-full p-2.5 bg-custom-light-gray border border-custom-dark-gray rounded-lg block w-full p-2.5 dark:placeholder-gray-400',    
+        'rows'              => 4,
+];
 @endphp
 
 
 <x-forms.field :$label :$name>
-    <textarea {{ $attributes->merge($defaults) }}>{{ old($name, $value) }}</textarea>
+    <textarea {{ $attributes->merge($defaults) }}>{{ ($textValue) }}</textarea>
 </x-forms.field>
 
 {{-- 

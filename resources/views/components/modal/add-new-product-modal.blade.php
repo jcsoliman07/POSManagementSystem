@@ -28,13 +28,13 @@
                 <div>
                     <!-- Product Name Input-->
                     <div class="mb-4">
-                        <x-forms.input label="Product Name" name="product" holder="Enter Product Name"/>
+                        <x-forms.input label="Product Name" name="product" holder="Enter Product Name" value="{{ old('product') }}"/>
                     </div>
 
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <!-- Product Prize Input-->
                         <div>
-                            <x-forms.input label="Prize" name="price" holder="₱ 000.00"/>
+                            <x-forms.input label="Prize" name="price" holder="₱ 000.00" value="{{ old('price') }}"/>
                         </div>
 
                         <!-- Product Category Input-->
@@ -43,7 +43,7 @@
                                 <option value="">--Select a Category</option>
 
                                 @foreach ($categories as $category) <!-- Display each category -->
-                                    <option value="{{ $category->id}}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id}}" {{ old('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                 @endforeach
                                 
                             </x-forms.select>
@@ -53,7 +53,7 @@
                     
                     <!-- Product Description Input-->
                     <div class="mb-4">
-                        <x-forms.text-area label="Description" name="description" holder="Write product description here..."/>
+                        <x-forms.text-area label="Description" name="description" holder="Write product description here..." value="{{ old('description') }}"/>
                     </div>
 
                     <div>
