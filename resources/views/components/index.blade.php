@@ -5,9 +5,9 @@
 
     <!-- Main Content Area -->
     <div class="content-area flex-1 overflow-auto">
-    <x-alert.success/>
-    <x-alert.warning/>
-    <x-alert.error/>
+    <x-alert.success />
+    <x-alert.warning />
+    <x-alert.error />
 
         <!-- Top Navigation -->
         <x-top-nav />

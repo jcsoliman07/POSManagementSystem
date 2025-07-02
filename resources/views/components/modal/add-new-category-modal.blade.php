@@ -26,10 +26,12 @@
             <x-forms.form method="POST" action="/category" >
 
                 <div class="p-4 flex flex-col h-full">
+                    <x-alert.error />
+
                     <div class="flex-grow">
 
                         <div>
-                            <x-forms.input label="Category Name" name="category" holder="Enter Category Name"/>
+                            <x-forms.input label="Category Name" name="category" holder="Enter Category Name" value="{{  old('category') }}"/>
                         </div>
 
                     </div>
