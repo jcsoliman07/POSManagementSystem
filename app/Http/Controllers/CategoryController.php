@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -29,12 +30,10 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
         // Validate the incoming request data
-        $validatedData = $request->validate([
-            'category' => ['required', 'string', 'max:255', 'unique:categories,name'], // Added unique rule
-        ]);
+        $validatedData = $request->validated(); //Data is already validated
 
         // Create a new Category instance
         Category::create([
