@@ -23,8 +23,8 @@ class ProductResource extends JsonResource
             'price'=>$this->price,
             'image_url'=>asset('storage/' . $this->image), //Generate url for image
             'category'=>new CategoryResource($this->whenLoaded('category')), // Load Category if it is available
-            'created_at'=>$this->created_at->format('Y:m:d H:i:s'),
-            'updated_at'=>$this->updated_at->format('Y:m:d H:i:s'),
+            'created_at'=>$this->created_at?->format('Y:m:d H:i:s'),
+            'updated_at'=>$this->updated_at?->format('Y:m:d H:i:s'),
         ];
     }
 }
