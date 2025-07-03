@@ -1,3 +1,4 @@
+
 //Tailwind CSS Customize Color Theme
 tailwind.config = {
     theme: {
@@ -126,3 +127,139 @@ document.addEventListener('DOMContentLoaded', function () {
 //         this.classList.add('active');
 //     });
 // });
+
+
+
+//User Dashboard Menu Items
+
+let orderItems = {}; // Array to keep track the order
+
+//Add item to order
+function addToOrder(productID) 
+{
+
+    const product = window.products[productID];
+    if (!product) return;
+
+    if (orderItems[productID]) 
+    {
+        orderItems[productID].quantity += 1;
+    } else 
+    {
+        orderItems[productID] = { ...product, quantity: 1 };
+    }
+
+    updateOrderList();
+}
+
+
+//Update the Order List
+function updateOrderList() {
+    const orderListContainer = document.getElementById('order-items');
+    orderListContainer.innerHTML = '';
+
+    let subTotal = 0;
+
+    Object.values(orderItems).forEach(item => {
+        const itemTotal = item.quantity * item.price;
+        subTotal += itemTotal;
+
+        const orderItem = document.createElement('div');
+        orderItem.className = 'flex justify-between items-center border-b border-gray-200 pb-2';
+
+        orderItem.innerHTML = `
+            <div>
+                <p class="font-semibold">${item.name}</p>
+                <p class="text-sm text-gray-500">₱${item.price} x ${item.quantity}</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <button class="text-sm bg-gray-200 px-2 rounded" onclick="decreaseQuantity(${item.id})">-</button>
+                <span>${item.quantity}</span>
+                <button class="text-sm bg-gray-200 px-2 rounded" onclick="increaseQuantity(${item.id})">+</button>
+                <button class="text-red-500 ml-2" onclick="removeItem(${item.id})">&times;</button>
+            </div>
+        `;
+
+        orderListContainer.appendChild(orderItem);
+    });
+
+    document.getElementById('subtotal').textContent = `₱ ${subTotal.toFixed(2)}`;
+
+    // Enable/Disable buttons
+    const hasItems = Object.keys(orderItems).length > 0;
+    document.getElementById('review-order-btn').disabled = !hasItems;
+    document.getElementById('place-order-btn').disabled = !hasItems;
+    document.getElementById('clear-order-btn').disabled = !hasItems;
+}
+
+
+
+//Increase Quantity
+function increaseQuantity(productID) {
+    orderItems[productID].quantity += 1;
+    updateOrderList();
+}
+
+//Decrease Quantity
+function decreaseQuantity(productID) {
+    if (orderItems[productID].quantity > 1) {
+        orderItems[productID].quantity -= 1;
+    } else {
+        delete orderItems[productID];
+    }
+    updateOrderList();
+}
+
+
+//Remove Items
+function removeItem(productID) {
+    delete orderItems[productID];
+    updateOrderList();
+}
+
+// // Clear order
+// document.getElementById('clear-order-btn').addEventListener('click', function() {
+//     orderItems = {};
+//     updateOrderList();
+// });
+
+
+//Review Modal
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('review-order-btn').addEventListener('click', function () {
+        const reviewItemsContainer = document.getElementById('review-items');
+        reviewItemsContainer.innerHTML = '';
+        
+        let total = 0;
+
+        Object.values(orderItems).forEach(item => {
+            const itemTotal = item.quantity * item.price;
+            total += itemTotal;
+
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'flex justify-between mb-2';
+
+            itemDiv.innerHTML = `
+                <span>${item.name} x ${item.quantity}</span>
+                <span>₱${itemTotal.toFixed(2)}</span>
+            `;
+            reviewItemsContainer.appendChild(itemDiv);
+        });
+
+        document.getElementById('reviewTotal').textContent = `₱${total.toFixed(2)}`;
+        document.getElementById('review-modal').classList.remove('hidden');
+    });
+
+    document.getElementById('cancelReviewBtn').addEventListener('click', function () {
+        document.getElementById('review-modal').classList.add('hidden');
+    });
+
+    document.getElementById('confirm-order-btn').addEventListener('click', function () {
+        alert("Order confirmed!");
+        orderItems = {};
+        updateOrderList();
+        document.getElementById('review-modal').classList.add('hidden');
+    });
+});
+
+
