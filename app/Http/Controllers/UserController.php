@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        $products = Products::latest()->get();
+        $products = Products::with('category')->latest()->paginate(10);
         $categories = Category::all();
 
         return view('user.index', compact('products', 'categories'));
