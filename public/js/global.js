@@ -104,34 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// function toggleEditModal() {
-//     const modal = document.getElementById('add-new-modal');
-//     modal.classList.remove('opacity-0', 'pointer-events-none');
-//     modal.classList.add('opacity-100');
-
-//     document.getElementById('category-name-input').value = name;
-//     document.getElementById('edit-form').action = `/category/${id}`;
-//     document.getElementById('_method').value = 'PUT';
-// }
-
-//  // Toggle sidebar on mobile
-// document.getElementById('toggleSidebar').addEventListener('click', function() {
-//     document.querySelector('.sidebar').classList.toggle('hidden');
-//     document.querySelector('.content-area').classList.toggle('ml-64');
-// });
-
-// // Set active state for sidebar items
-// document.querySelectorAll('.sidebar-item').forEach(item => {
-//     item.addEventListener('click', function() {
-//         document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
-//         this.classList.add('active');
-//     });
-// });
-
-
-
 //User Dashboard Menu Items
-
 let orderItems = {}; // Array to keep track the order
 
 //Add item to order
@@ -208,7 +181,6 @@ function decreaseQuantity(productID) {
     }
     updateOrderList();
 }
-
 
 //Remove Items
 function removeItem(productID) {
