@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\OrderItems;
 use App\Models\Orders;
 use App\Models\Products;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -11,11 +12,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class OrderItemsFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = OrderItems::class;
+    
     public function definition(): array
     {
         return [
