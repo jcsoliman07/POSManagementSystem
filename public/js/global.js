@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    //Revie Modal Opens
+    //Review Modal Open
     document.getElementById('review-order-btn').addEventListener('click', function () {
         const reviewItemsContainer = document.getElementById('review-items');
         reviewItemsContainer.innerHTML = '';
