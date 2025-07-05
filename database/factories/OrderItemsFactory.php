@@ -13,15 +13,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class OrderItemsFactory extends Factory
 {
     protected $model = OrderItems::class;
-    
+
     public function definition(): array
     {
         return [
             //
-            'order_id'      => Orders::factory(),
+            'order_id'      => Orders::inRandomOrder()->first()?->id,
             'product_id'    => Products::inRandomOrder()->first()?->id,
-            'quantity'      => fake()->numberBetween(1,5),
-            'price'         => fake()->randomFloat(2, 50, 300),
+            'quantity'      => $this->faker->numberBetween(1,5),
+            'price'         => $this->faker->randomFloat(2, 50, 300),
         ];
     }
 }
