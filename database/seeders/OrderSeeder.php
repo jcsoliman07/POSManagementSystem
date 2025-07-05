@@ -24,16 +24,25 @@ class OrderSeeder extends Seeder
         foreach ($orders as $order)
         {
             //Create 2-5 items per Order
-            OrderItems::factory()
+            $items = OrderItems::factory()
                     ->count(fake()->numberBetween(2,5))
                     ->state(function () use ($order, $products){
                         
                         return [
                             'order_id'      => $order->id,
+                            // 'quantity'      => $order->quanity,
+                            // 'price'         => $order->price,
                         ];
 
                     })
                     ->create();
+
+            //Compute Total after Creating Items
+            $total = $items->sum(function($item){
+                return $item->price * $item->quantity;
+            });
+
+            $order->update(['total_amount' => $total]);
         }
     }
 }
