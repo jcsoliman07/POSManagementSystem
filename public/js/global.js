@@ -6,6 +6,7 @@ tailwind.config = {
             colors: {
                 'custom-gray': '#1f1f1f',
                 'custom-yellow': '#E9BB3F',
+                'custom-yellow-dark': '#FDD835',
                 'custom-light-gray': '#F6F6F6',
                 'custom-dark-gray': '#979797',
             }
