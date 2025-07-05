@@ -161,7 +161,6 @@ function updateOrderList() {
     // Enable/Disable buttons
     const hasItems = Object.keys(orderItems).length > 0;
     document.getElementById('review-order-btn').disabled = !hasItems;
-    document.getElementById('place-order-btn').disabled = !hasItems;
     document.getElementById('clear-order-btn').disabled = !hasItems;
 }
 
