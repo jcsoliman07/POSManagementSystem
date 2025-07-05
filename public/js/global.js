@@ -193,7 +193,6 @@ function updateOrderList() {
 }
 
 
-
 //Increase Quantity
 function increaseQuantity(productID) {
     orderItems[productID].quantity += 1;
@@ -217,15 +216,17 @@ function removeItem(productID) {
     updateOrderList();
 }
 
-// // Clear order
-// document.getElementById('clear-order-btn').addEventListener('click', function() {
-//     orderItems = {};
-//     updateOrderList();
-// });
-
-
 //Review Modal
 document.addEventListener('DOMContentLoaded', function () {
+
+    //Clear Order Button
+    document.getElementById('clear-order-btn').addEventListener('click', function() {
+        orderItems = {};
+        updateOrderList();
+    });
+
+
+    //Revie Modal Opens
     document.getElementById('review-order-btn').addEventListener('click', function () {
         const reviewItemsContainer = document.getElementById('review-items');
         reviewItemsContainer.innerHTML = '';
