@@ -111,8 +111,6 @@
                     <div class="mt-6 space-y-3">
                         <button id="review-order-btn" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition duration-200 disabled:opacity-50" disabled> Review your Order </button>
 
-                        <button id="place-order-btn" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-medium transition duration-200 disabled:opacity-50" disabled> Place Order </button>
-
                         <button id="clear-order-btn" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-medium transition duration-200" disabled> Clear Order </button>
                     </div>
                 </div>
