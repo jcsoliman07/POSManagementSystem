@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,10 @@ class OrderFactory extends Factory
     {
         return [
             //
+            //Filters user based on the role
+            //fn($q) => $q->where('name', 'user')) limits its to  users whose role name is exactly 'user'
+            'user_id'   => User::whereHas('role', fn($q) => $q->where('name', 'user'))->inRandomOrder()->first()?->id,
+            'total'     => fake()->randomFloat(2, 100, 1000), //float number from 100 - 1000 and have a 2 decimal places
         ];
     }
 }
