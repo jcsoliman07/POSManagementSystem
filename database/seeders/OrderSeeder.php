@@ -30,7 +30,6 @@ class OrderSeeder extends Seeder
                         
                         return [
                             'order_id'      => $order->id,
-                            'product_id'    => $products->random()->id,
                         ];
 
                     })
