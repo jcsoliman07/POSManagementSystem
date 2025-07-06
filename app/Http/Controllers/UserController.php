@@ -48,10 +48,11 @@ class UserController extends Controller
         }, 0);
 
         foreach ($orderData as $items) {
-           dd([
-                'orderData' => $orderData,
-                'totalAmount' =>$totalAmount,
-           ]);
+            
+            dd([
+                    'orderData' => $orderData, //Fetch data for each item
+                    'totalAmount' =>$totalAmount, //Total Amount of price for all item
+            ]);
         }
     }
 
