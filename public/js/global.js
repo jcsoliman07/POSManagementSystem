@@ -109,20 +109,20 @@ document.addEventListener('DOMContentLoaded', function () {
 let orderItems = {}; // Array to keep track the order
 
 //Add item to order
-function addToOrder(productID) 
-{
-
+function addToOrder(productID) {
+    console.log('Adding product ID:', productID);
     const product = window.products[productID];
+    console.log('Fetched product:', product);
+
     if (!product) return;
 
-    if (orderItems[productID]) 
-    {
+    if (orderItems[productID]) {
         orderItems[productID].quantity += 1;
-    } else 
-    {
+    } else {
         orderItems[productID] = { ...product, quantity: 1 };
     }
 
+    console.log('Current orderItems:', orderItems);
     updateOrderList();
 }
 
@@ -150,7 +150,6 @@ function updateOrderList() {
                 <button class="text-sm bg-gray-200 px-2 rounded" onclick="decreaseQuantity(${item.id})">-</button>
                 <span>${item.quantity}</span>
                 <button class="text-sm bg-gray-200 px-2 rounded" onclick="increaseQuantity(${item.id})">+</button>
-                <button class="text-red-500 ml-2" onclick="removeItem(${item.id})">&times;</button>
             </div>
         `;
 
@@ -159,28 +158,32 @@ function updateOrderList() {
 
     document.getElementById('subtotal').textContent = `₱ ${subTotal.toFixed(2)}`;
 
-    // Enable/Disable buttons
+    // Enable or disable buttons
     const hasItems = Object.keys(orderItems).length > 0;
     document.getElementById('review-order-btn').disabled = !hasItems;
     document.getElementById('clear-order-btn').disabled = !hasItems;
 }
 
 
+
 //Increase Quantity
 function increaseQuantity(productID) {
-    orderItems[productID].quantity += 1;
-    updateOrderList();
+    if (orderItems[productID]) {
+        orderItems[productID].quantity += 1;
+        updateOrderList();
+    }
 }
-
 //Decrease Quantity
 function decreaseQuantity(productID) {
-    if (orderItems[productID].quantity > 1) {
+    if (orderItems[productID]) {
         orderItems[productID].quantity -= 1;
-    } else {
-        delete orderItems[productID];
+        if (orderItems[productID].quantity <= 0) {
+            delete orderItems[productID];
+        }
+        updateOrderList();
     }
-    updateOrderList();
 }
+
 
 //Remove Items
 function removeItem(productID) {
@@ -188,51 +191,46 @@ function removeItem(productID) {
     updateOrderList();
 }
 
+document.getElementById('clear-order-btn').addEventListener('click', function () {
+    orderItems = {};
+    updateOrderList();
+});
+
 //Review Modal
-document.addEventListener('DOMContentLoaded', function () {
+document.getElementById('review-order-btn').addEventListener('click', function () {
+    const reviewContainer = document.getElementById('review-items');
+    const orderDataInput = document.getElementById('orderDataInput');
+    const reviewTotal = document.getElementById('reviewTotal');
 
-    //Clear Order Button
-    document.getElementById('clear-order-btn').addEventListener('click', function() {
-        orderItems = {};
-        updateOrderList();
+    reviewContainer.innerHTML = '';
+    let total = 0;
+    const orderData = [];
+
+    Object.values(orderItems).forEach(item => {
+        const itemTotal = item.quantity * item.price;
+        total += itemTotal;
+
+        const itemElement = document.createElement('div');
+        itemElement.className = 'flex justify-between py-1 border-b';
+        itemElement.innerHTML = `
+            <span> ${item.id}</span>
+            <span>${item.name} x ${item.quantity}</span>
+            <span>₱${itemTotal.toFixed(2)}</span>
+        `;
+        reviewContainer.appendChild(itemElement);
+
+        orderData.push({ product_id: item.id, quantity: item.quantity, subtotal: itemTotal });
     });
 
+    reviewTotal.textContent = `₱${total.toFixed(2)}`;
+    orderDataInput.value = JSON.stringify(orderData);
 
-    //Review Modal Open
-    document.getElementById('review-order-btn').addEventListener('click', function () {
-        const reviewItemsContainer = document.getElementById('review-items');
-        reviewItemsContainer.innerHTML = '';
-        
-        let total = 0;
+    document.getElementById('review-modal').classList.remove('hidden');
+});
 
-        Object.values(orderItems).forEach(item => {
-            const itemTotal = item.quantity * item.price;
-            total += itemTotal;
-
-            const itemDiv = document.createElement('div');
-            itemDiv.className = 'flex justify-between mb-2';
-
-            itemDiv.innerHTML = `
-                <span>${item.name} x ${item.quantity}</span>
-                <span>₱${itemTotal.toFixed(2)}</span>
-            `;
-            reviewItemsContainer.appendChild(itemDiv);
-        });
-
-        document.getElementById('reviewTotal').textContent = `₱${total.toFixed(2)}`;
-        document.getElementById('review-modal').classList.remove('hidden');
-    });
-
-    document.getElementById('cancelReviewBtn').addEventListener('click', function () {
-        document.getElementById('review-modal').classList.add('hidden');
-    });
-
-    document.getElementById('confirm-order-btn').addEventListener('click', function () {
-        alert("Order confirmed!");
-        orderItems = {};
-        updateOrderList();
-        document.getElementById('review-modal').classList.add('hidden');
-    });
+//Cancel Review Modal
+document.getElementById('cancelReviewBtn').addEventListener('click', function () {
+    document.getElementById('review-modal').classList.add('hidden');
 });
 
 

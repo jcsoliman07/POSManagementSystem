@@ -129,12 +129,14 @@
                 <!--Review Items-->
                 <h2 class="text-xl font-bold">Review Order</h2>
 
-                <x-forms.form action="" method="POST">
+                <x-forms.form action="{{ route('orders.store') }}" method="POST">
                     @csrf
 
+                    
                     <div id="review-items" class="flex justify-between text-gray-800">
                         <!--Items will be automatically added -->
                     </div>
+                    <input type="hidden" name="orderData" id="orderDataInput">
 
                     <div class="border-t border-gray-200 pt-4">
                         <div class="flex justify-between font-bold text-lg text-red-600">
@@ -173,7 +175,7 @@
 
 <script>
     //Passing products into global window object
-    window.products = @json($products->keyBy('id')); //Makign accessible anywhere
+    window.products = @json($products); //Makign accessible anywhere
 </script>   
 
-</x-layout>
+</x-layout> 

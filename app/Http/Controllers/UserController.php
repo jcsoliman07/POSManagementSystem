@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        $products = Products::latest()->get();
+        $products = Products::latest()->get()->keyBy('id');
         $categories = Category::all();
 
         return view('user.index', compact('products', 'categories'));
@@ -35,8 +35,24 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //Validate Data
-        dd($request->all());
-    
+        // dd($request->all());
+        $request->validate([
+            'orderData' => 'required|json',
+        ]);
+
+        //Decoding the json data
+        $orderData = json_decode($request->orderData, true);
+
+        $totalAmount = array_reduce($orderData, function ($carry, $item){
+            return $carry + $item['subtotal'];
+        }, 0);
+
+        foreach ($orderData as $items) {
+           dd([
+                'orderData' => $orderData,
+                'totalAmount' =>$totalAmount,
+           ]);
+        }
     }
 
     /**
