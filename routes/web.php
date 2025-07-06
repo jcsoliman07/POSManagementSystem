@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/user-dashboard', [UserController::class, 'index']);
+Route::post('/user-dashboard', [UserController::class, 'store']);
 
 Route::get('/login', [SessionController::class, 'create']);
 Route::post('/login', [SessionController::class, 'store']);

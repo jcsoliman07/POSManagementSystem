@@ -126,41 +126,46 @@
         <div class="bg-white rounded-lg shadow-xl w-full max-w-md">
             <div class="px-6 py-8 space-y-4">
 
-                 <!--Review Items-->
-                 <h2 class="text-xl font-bold">Review Order</h2>
+                <!--Review Items-->
+                <h2 class="text-xl font-bold">Review Order</h2>
 
-                 <div id="review-items" class="flex justify-between text-gray-800">
-                     <!--Items will be automatically added -->
-                 </div>
+                <x-forms.form action="" method="POST">
+                    @csrf
 
-                 <div class="border-t border-gray-200 pt-4">
-                    <div class="flex justify-between font-bold text-lg text-red-600">
-                        <span>Total:</span>
-                        <span id="reviewTotal">₱0.00</span>
+                    <div id="review-items" class="flex justify-between text-gray-800">
+                        <!--Items will be automatically added -->
                     </div>
-                </div>
 
-                 <div class="mt-6 flex justify-end gap-3">
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="flex justify-between font-bold text-lg text-red-600">
+                            <span>Total:</span>
+                            <span id="reviewTotal">₱0.00</span>
+                        </div>
+                    </div>
 
-                    <!-- Order Button Cancel-->
-                    <button     
-                        type="button" 
-                        id="cancelReviewBtn" 
-                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                    >
-                        Cancel
+                    <div class="mt-6 flex justify-end gap-3">
 
-                    </button>
+                        <!-- Order Button Cancel-->
+                        <button     
+                            type="button" 
+                            id="cancelReviewBtn" 
+                            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                        >
+                            Cancel
 
-                    <!-- Order Button Confirm-->
-                    <button 
-                        type="submit" 
-                        id="confirm-order-btn" 
-                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-custom-yellow text-base font-medium text-white hover:bg-custom-yellow-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-yellow-dark sm:ml-3 sm:w-auto sm:text-sm"
-                    > 
-                        Confirm Order 
+                        </button>
 
-                    </button>
+                        <!-- Order Button Confirm-->
+                        <button 
+                            type="submit" 
+                            id="confirm-order-btn" 
+                            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-custom-yellow text-base font-medium text-white hover:bg-custom-yellow-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-yellow-dark sm:ml-3 sm:w-auto sm:text-sm"
+                        > 
+                            Confirm Order 
+
+                        </button>
+
+                    </x-forms.form>
                 </div>
             </div>
         </div>
