@@ -45,7 +45,7 @@ class CategoryPOlicy
      */
     public function delete(User $user, Category $category): bool
     {
-        return false;
+        return $user->role->name === 'super_admin';
     }
 
     /**
