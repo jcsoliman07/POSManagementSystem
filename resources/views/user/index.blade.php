@@ -16,7 +16,12 @@
                 <div class="flex justify-between items-center mb-12">
                     <x-nav-heading class="">POS Management System</x-nav-heading>
                     <div class="yexy-custom-gray">
-                        Staff Mode: Order Entry
+                        {{-- Staff Mode: Order Entry --}}
+
+                        <x-forms.paragraph>
+                            Staff: {{ ucfirst(auth()->user()->role->name) }}
+                        </x-forms.paragraph>
+
                     </div>
                 </div>
 
