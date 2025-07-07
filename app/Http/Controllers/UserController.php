@@ -37,7 +37,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //Validate Data
-        // dd($request->all());
         $request->validate([
             'orderData' => 'required|json',
         ]);
@@ -49,7 +48,11 @@ class UserController extends Controller
             return $carry + $item['subtotal'];
         }, 0);
 
-
+        if(!is_array($orderData))
+        {
+            return back()->withErrors(['orderData' => 'Invalid Order Data Recieved!']);
+        }
+        
         //Create and Store Data to Order Table
         $order = Orders::create([
             'user_id' => 3, //Temporarily Harcoded the User ID, soon it will be based on the login user
@@ -57,7 +60,7 @@ class UserController extends Controller
         ]);
 
         //Create and Store Data for Order Items
-        foreach ($orderData as $items) {
+        foreach ($orderData as $item) {
             
             // dd([
             //         'orderData' => $orderData, //Fetch data for each item
@@ -65,9 +68,9 @@ class UserController extends Controller
             // ]);
             OrderItems::create([
                 'order_id' => $order->id,
-                'product_id' => $items['product_id'],
-                'quantity' => $items['quantity'],
-                'price' => $items['subtotal'],
+                'product_id' => $item['product_id'],
+                'quantity' => $item['quantity'],
+                'price' => $item['subtotal'],
             ]);
 
         }
