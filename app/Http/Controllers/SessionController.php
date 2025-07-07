@@ -46,12 +46,6 @@ class SessionController extends Controller
             return back()->with('error', 'The Email is not registered!');
         }
 
-        //Validation if Password is correct
-        if(!Hash::check($attributes['password'], $user->password))
-        {
-            return back()->with('error', 'Incorrect Password. Please input valid credentials!');
-        }
-
         if (Auth::attempt($attributes)) {
 
             $request->session()->regenerate();
