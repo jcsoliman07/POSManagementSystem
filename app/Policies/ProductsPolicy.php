@@ -45,7 +45,7 @@ class ProductsPolicy
      */
     public function delete(User $user, Products $products): bool
     {
-        return false;
+        return $user->role->name === 'super_admin';
     }
 
     /**
