@@ -52,12 +52,13 @@ class UserController extends Controller
         {
             return back()->withErrors(['orderData' => 'Invalid Order Data Recieved!']);
         }
-        
+
         //Create and Store Data to Order Table
         $order = Orders::create([
             'user_id' => 3, //Temporarily Harcoded the User ID, soon it will be based on the login user
-            'total_amount' => $totalAmount, //Total Amount of the orders
         ]);
+
+        $totalAmount = 0; //Preparing Total Amount of Order
 
         //Create and Store Data for Order Items
         foreach ($orderData as $item) {
@@ -66,6 +67,7 @@ class UserController extends Controller
             //         'orderData' => $orderData, //Fetch data for each item
             //         'totalAmount' =>$totalAmount, //Total Amount of price for all item
             // ]);
+
             OrderItems::create([
                 'order_id' => $order->id,
                 'product_id' => $item['product_id'],
@@ -73,7 +75,13 @@ class UserController extends Controller
                 'price' => $item['subtotal'],
             ]);
 
+            $totalAmount += $item['subtotal']; //Get the sum price of product in order
+
         }
+
+        $order->update([
+            'total_amount' => $totalAmount,
+        ]);
 
         return redirect()->back()->with('success', 'Order Successfully placed!');
     }
