@@ -93,6 +93,8 @@ class CategoryController extends Controller
     public function destroy(Category $category) //Route Binding
     {
         //
+        $this->authorize('delete', $category);
+
         $category->delete();
 
         return redirect()->back()->with('warning', 'Category deleted successfully!');

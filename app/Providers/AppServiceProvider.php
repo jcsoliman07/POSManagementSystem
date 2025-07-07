@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Policies\CategoryPolicy;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,4 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
+    protected $policies = [Category::class => CategoryPolicy::class];
 }
