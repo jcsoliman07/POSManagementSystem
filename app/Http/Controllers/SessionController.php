@@ -63,8 +63,7 @@ class SessionController extends Controller
                 case 'admin':
                     return redirect()->route('dashboard'); //Shared Dashboard for Admin and Super Admin
                 case 'user':
-                    // return view('user.index');
-                    return ('Hello!');
+                    return redirect()->route('user.dashboard'); //Redirect to the User Dashboard
                 default:
                     abort(403);
             }
