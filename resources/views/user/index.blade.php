@@ -2,6 +2,10 @@
 
 <div class="w-full overflow-auto">
 
+    <x-alert.success />
+    <x-alert.error />
+    <x-alert.warning/>
+
     <div class="container mx-auto py-8 px-4 bg-gray-100">
         <div class="flex flex-col lg:flex-row gap-6 mb-8">
 
