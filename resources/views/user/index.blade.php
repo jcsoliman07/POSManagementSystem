@@ -15,6 +15,7 @@
                 <!-- Header -->
                 <div class="flex justify-between items-center mb-12">
                     <x-nav-heading class="">POS Management System</x-nav-heading>
+
                     <div class="yexy-custom-gray">
                         {{-- Staff Mode: Order Entry --}}
 
@@ -22,6 +23,19 @@
                             Staff: {{ ucfirst(auth()->user()->role->name) }}
                         </x-forms.paragraph>
 
+                    </div>
+
+                    <div>
+                        <!-- Logout/User Section -->
+                        <x-forms.form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                                <button 
+                                    type="submit" 
+                                    class="px-6 py-2 rounded-full bg-custom-light-gray shadow hover:bg-custom-yellow hover:scale-105 hover:translate-y-1 transition-transform duration-300 ease-in-out"
+                                >
+                                    Logout
+                                </button>
+                        </x-forms.form>
                     </div>
                 </div>
 
