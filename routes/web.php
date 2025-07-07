@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user-dashboard', [UserController::class, 'index'])->name('user.dashboard');
 Route::post('/user-dashboard', [UserController::class, 'store'])->name('orders.store');
 
-Route::get('/login', [SessionController::class, 'create']);
+Route::get('/login', [SessionController::class, 'create'])->name('login');
 Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
 
