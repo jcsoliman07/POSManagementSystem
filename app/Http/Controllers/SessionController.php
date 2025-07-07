@@ -41,9 +41,9 @@ class SessionController extends Controller
         $user = User::where('email', $attributes['email'])->first();
 
         //Validation if Email is Registered
-        if(!$user)
+        if(!Auth::attempt($attributes))
         {
-            return back()->with('error', 'The Email is not registered!');
+            return back()->with('error', 'Invalid Credentials!');
         }
 
         if (Auth::attempt($attributes)) {
