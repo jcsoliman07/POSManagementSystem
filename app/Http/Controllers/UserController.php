@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\OrderItems;
+use App\Models\Orders;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
@@ -47,13 +49,30 @@ class UserController extends Controller
             return $carry + $item['subtotal'];
         }, 0);
 
+
+        //Create and Store Data to Order Table
+        $order = Orders::create([
+            'user_id' => 3, //Temporarily Harcoded the User ID, soon it will be based on the login user
+            'total_amount' => $totalAmount, //Total Amount of the orders
+        ]);
+
+        //Create and Store Data for Order Items
         foreach ($orderData as $items) {
             
-            dd([
-                    'orderData' => $orderData, //Fetch data for each item
-                    'totalAmount' =>$totalAmount, //Total Amount of price for all item
+            // dd([
+            //         'orderData' => $orderData, //Fetch data for each item
+            //         'totalAmount' =>$totalAmount, //Total Amount of price for all item
+            // ]);
+            OrderItems::create([
+                'order_id' => $order->id,
+                'product_id' => $items['product_id'],
+                'quantity' => $items['quantity'],
+                'price' => $items['subtotal'],
             ]);
+
         }
+
+        return redirect()->back()->with('success', 'Order Successfully placed!');
     }
 
     /**
