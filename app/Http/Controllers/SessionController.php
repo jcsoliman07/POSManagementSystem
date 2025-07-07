@@ -46,21 +46,18 @@ class SessionController extends Controller
             return back()->with('error', 'Invalid Credentials!');
         }
 
-        if (Auth::attempt($attributes)) {
+        $request->session()->regenerate();
+        $user = Auth::user();
 
-            $request->session()->regenerate();
-            $user = Auth::user();
-
-            switch($user->role->name)
-            {
-                case 'super_admin':
-                case 'admin':
-                    return redirect()->route('dashboard'); //Shared Dashboard for Admin and Super Admin
-                case 'user':
-                    return redirect()->route('user.dashboard'); //Redirect to the User Dashboard
-                default:
-                    abort(403);
-            }
+        switch($user->role->name)
+        {
+            case 'super_admin':
+            case 'admin':
+                return redirect()->route('dashboard'); //Shared Dashboard for Admin and Super Admin
+            case 'user':
+                return redirect()->route('user.dashboard'); //Redirect to the User Dashboard
+            default:
+                abort(403);
         }
     }
 
