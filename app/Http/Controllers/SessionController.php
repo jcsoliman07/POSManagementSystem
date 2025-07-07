@@ -62,8 +62,6 @@ class SessionController extends Controller
                     abort(403);
             }
         }
-
-        return back()->with('error', 'Login failed. Please try again.');
     }
 
     /**
