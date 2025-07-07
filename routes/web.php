@@ -15,9 +15,15 @@ Route::middleware('guest')->group(function() {
     Route::post('/login', [SessionController::class, 'store']); 
 });
 
-Route::get('/user-dashboard', [UserController::class, 'index'])->name('user.dashboard');
-Route::post('/user-dashboard', [UserController::class, 'store'])->name('orders.store');
-Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
+//Authenticated Users
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
+
+    //User Dashboard
+    Route::get('/user-dashboard', [UserController::class, 'index'])->name('user.dashboard');
+    Route::post('/user-dashboard', [UserController::class, 'store'])->name('orders.store');
+});
+
 
 Route::get('/dashboard', [DashBoardController::class, 'index'])->name('dashboard');
 
