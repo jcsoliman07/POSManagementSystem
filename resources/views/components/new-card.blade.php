@@ -19,9 +19,13 @@
                 <!--Edit Category Modal Form -->
                 <x-modal.edit-modal-category :category="$category" />
 
-                <x-buttons.button-destroy-modal icon="fas fa-trash" :category="$category"/> 
-                <!--Destroy Category Modal Form -->
-                <x-modal.destroy-modal-category :category="$category" />
+                
+                <!-- Only the Role:Super Admin can see and delete-->
+                @can('delete', $category) 
+                    <x-buttons.button-destroy-modal icon="fas fa-trash" :category="$category"/> 
+                    <!--Destroy Category Modal Form -->
+                    <x-modal.destroy-modal-category :category="$category" />
+                @endcan
 
             </div>
         </div>  
