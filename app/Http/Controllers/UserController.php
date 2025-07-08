@@ -7,6 +7,7 @@ use App\Models\OrderItems;
 use App\Models\Orders;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -55,7 +56,7 @@ class UserController extends Controller
 
         //Create and Store Data to Order Table
         $order = Orders::create([
-            'user_id' => 3, //Temporarily Harcoded the User ID, soon it will be based on the login user
+            'user_id' => Auth::id(), //Use the Authenticated Login User ID
         ]);
 
         $totalAmount = 0; //Preparing Total Amount of Order
