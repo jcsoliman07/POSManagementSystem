@@ -41,8 +41,8 @@
             <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
                 <div class="flex justify-between items-center">
                     <div>
-                        <p class="text-sm text-yellow-600">Today's Item Sold</p>
-                        <p class="text-2xl font-bold mt-2">78</p>
+                        <p class="text-sm text-yellow-600">Today's Product Sold</p>
+                        <p class="text-2xl font-bold mt-2">{{ $todayStats->total_items_sold ?? 0}}</p>
                     </div>
                     <i class="fas fa-users text-yellow-400 text-2xl"></i>
                 </div>
