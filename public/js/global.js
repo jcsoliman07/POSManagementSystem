@@ -150,6 +150,7 @@ function updateOrderList() {
                 <button class="text-sm bg-gray-200 px-2 rounded" onclick="decreaseQuantity(${item.id})">-</button>
                 <span>${item.quantity}</span>
                 <button class="text-sm bg-gray-200 px-2 rounded" onclick="increaseQuantity(${item.id})">+</button>
+                <button class="text-sm bg-red-500 text-white px-2 rounded" onclick="removeItem(${item.id})">×</button>
             </div>
         `;
 
@@ -164,7 +165,11 @@ function updateOrderList() {
     document.getElementById('clear-order-btn').disabled = !hasItems;
 }
 
-
+//Remove Item
+function removeItem(id) {
+    delete orderItems[id];
+    updateOrderList();
+}
 
 //Increase Quantity
 function increaseQuantity(productID) {
