@@ -22,7 +22,7 @@
                 <div class="flex justify-between items-center">
                     <div>
                         <p class="text-sm text-blue-600">Today's Orders</p>
-                        <p class="text-2xl font-bold mt-2">{{ $todayOrders }}</p> <!-- Count of Today Orders -->
+                        <p class="text-2xl font-bold mt-2">{{ $todayStats->order_count ?? 0 }}</p> <!-- Count of Today Orders -->
                     </div>
                     <i class="fas fa-shopping-cart text-blue-400 text-2xl"></i>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="flex justify-between items-center">
                     <div>
                         <p class="text-sm text-green-600">Today's Revenue</p>
-                        <p class="text-2xl font-bold mt-2">₱ {{ $todayRevenue }}</p> <!-- Count of Today Revenue or Sales -->
+                        {{-- <p class="text-2xl font-bold mt-2">₱ {{ $todayRevenue }}</p> <!-- Count of Today Revenue or Sales --> --}}
                     </div>
                     <i class="fas fa-peso-sign text-green-400 text-2xl"></i>
                 </div>

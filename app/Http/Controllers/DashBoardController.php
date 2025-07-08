@@ -22,11 +22,11 @@ class DashBoardController extends Controller
                 ->join('order_items', 'orders.id', '=' , 'order_items.order_id' )
                 ->selectRaw('
                     COUNT(DISTINCT orders.id) as order_count,
-                    SUM(order.total_amount) as revenue,
+                    SUM(orders.total_amount) as revenue,
                     SUM(order_items.quantity) as total_items_sold
                 
                 ')
-                ->whereDate('created_at', today())
+                ->whereDate('orders.created_at', today())
                 ->first();
 
         return view('components.dashboard', compact('user', 'todayStats'));
