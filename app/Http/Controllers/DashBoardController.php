@@ -20,7 +20,7 @@ class DashBoardController extends Controller
         return view('components.dashboard', [
             'user' => $user,
             'todayOrders' => $todayStats->order_count?? 0,
-            'todayRevenue' => $todayStats->revenue ?? 0,
+            'todayRevenue' => number_format($todayStats->revenue ?? 0, 2),
         ]);
     }
 }
