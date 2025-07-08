@@ -32,7 +32,7 @@
                 <div class="flex justify-between items-center">
                     <div>
                         <p class="text-sm text-green-600">Today's Revenue</p>
-                        {{-- <p class="text-2xl font-bold mt-2">₱ {{ $todayRevenue }}</p> <!-- Count of Today Revenue or Sales --> --}}
+                        <p class="text-2xl font-bold mt-2">₱ {{ number_format($todayStats->revenue ?? 0, 2) }}</p> <!-- Count of Today Revenue or Sales -->
                     </div>
                     <i class="fas fa-peso-sign text-green-400 text-2xl"></i>
                 </div>
