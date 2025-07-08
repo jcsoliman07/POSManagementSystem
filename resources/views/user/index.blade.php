@@ -20,7 +20,7 @@
                         {{-- Staff Mode: Order Entry --}}
 
                         <x-forms.paragraph>
-                            Staff: {{ ucfirst(auth()->user()->role->name) }}
+                            Staff: {{ ucfirst(auth()->user()->name) }}
                         </x-forms.paragraph>
 
                     </div>

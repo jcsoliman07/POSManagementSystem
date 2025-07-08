@@ -48,6 +48,13 @@ class DatabaseSeeder extends Seeder
             'role_id' => Role::where('name', 'user')->first()->id,
         ]);
 
+        //User Account
+        User::factory()->create([
+            'name' => 'Kamote',
+            'email' => 'kamote@example.com',
+            'role_id' => Role::where('name', 'user')->first()->id,
+        ]);
+
         //This is custom Seeder
         $this->call([
             CategorySeeder::class,
