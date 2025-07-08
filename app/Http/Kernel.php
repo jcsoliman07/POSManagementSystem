@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -65,6 +66,7 @@ class Kernel extends HttpKernel
      */
     protected array $middlewareAliases = [
         'auth' => Authenticate::class,
+        'role' => RoleMiddleware::class,
         'guest' => RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
