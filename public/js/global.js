@@ -211,11 +211,12 @@ document.getElementById('review-order-btn').addEventListener('click', function (
         total += itemTotal;
 
         const itemElement = document.createElement('div');
-        itemElement.className = 'flex justify-between py-1 border-b';
+        itemElement.className = 'flex py-4 border-b';
         itemElement.innerHTML = `
-            <span> ${item.id}</span>
-            <span>${item.name} x ${item.quantity}</span>
-            <span>₱${itemTotal.toFixed(2)}</span>
+            <span class="hidden"> ${item.id}</span>
+            <span class="flex-1">${item.name}</span>
+            <span class="flex-1 text-center">x ${item.quantity}</span>
+            <span class="flex-1 text-right">₱${itemTotal.toFixed(2)}</span>
         `;
         reviewContainer.appendChild(itemElement);
 

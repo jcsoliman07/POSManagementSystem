@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <!--Total -->
                     <div class="border-t border-custom-light-gray pt-3">
@@ -156,7 +156,7 @@
                     @csrf
 
                     
-                    <div id="review-items" class="flex justify-between text-gray-800">
+                    <div id="review-items">
                         <!--Items will be automatically added -->
                     </div>
                     <input type="hidden" name="orderData" id="orderDataInput">
