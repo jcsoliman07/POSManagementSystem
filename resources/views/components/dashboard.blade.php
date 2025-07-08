@@ -44,7 +44,7 @@
                         <p class="text-sm text-yellow-600">Today's Product Sold</p>
                         <p class="text-2xl font-bold mt-2">{{ $todayStats->total_items_sold ?? 0}}</p>
                     </div>
-                    <i class="fas fa-users text-yellow-400 text-2xl"></i>
+                    <i class="fas fa-shopping-cart text-yellow-400 text-2xl"></i>
                 </div>
             </div>
         </div>
