@@ -22,7 +22,7 @@ class OrderService extends Controller
 
     }
 
-    public function sotre(Request $request)
+    public function store(Request $request)
     {
         //Validate Data
         $request->validate([
