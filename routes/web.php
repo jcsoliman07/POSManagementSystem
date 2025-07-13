@@ -2,14 +2,12 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashBoardController;
-use App\Http\Controllers\OrderService;
+use App\Http\Controllers\OrderItemsController;
+use App\Http\Controllers\OrderServiceController;
 use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\UserController;
 use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Support\Facades\Route;
-
 
 //Public or Guests Routes
 Route::middleware('guest')->group(function() {
@@ -22,8 +20,8 @@ Route::middleware(['auth', PreventBackHistory::class])->group(function () {
     Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
 
     //User Dashboard
-    Route::get('/user-dashboard', [OrderService::class, 'index'])->name('user.dashboard');
-    Route::post('/user-dashboard', [OrderService::class, 'store'])->name('orders.store');
+    Route::get('/user-dashboard', [OrderServiceController::class, 'index'])->name('user.dashboard');
+    Route::post('/user-dashboard', [OrderServiceController::class, 'store'])->name('orders.store');
 });
 
 //Super Admin and Admin Dashboard
