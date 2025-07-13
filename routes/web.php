@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashBoardController;
+use App\Http\Controllers\OrderService;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SessionController;
@@ -21,8 +22,8 @@ Route::middleware(['auth', PreventBackHistory::class])->group(function () {
     Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
 
     //User Dashboard
-    Route::get('/user-dashboard', [UserController::class, 'index'])->name('user.dashboard');
-    Route::post('/user-dashboard', [UserController::class, 'store'])->name('orders.store');
+    Route::get('/user-dashboard', [OrderService::class, 'index'])->name('user.dashboard');
+    Route::post('/user-dashboard', [OrderService::class, 'store'])->name('orders.store');
 });
 
 //Super Admin and Admin Dashboard
