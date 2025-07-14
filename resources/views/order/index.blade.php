@@ -65,7 +65,7 @@
                 <div class="bg-white rounded-lg shadow-md p-4 mb-6">
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         <!-- Filter Date Range Dropdown-->
-                        <div>
+                        <div class="border-r-2 border-yellow-500 pr-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
                             <select class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
                                 <option>Today</option>
