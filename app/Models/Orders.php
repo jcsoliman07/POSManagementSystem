@@ -16,6 +16,15 @@ class Orders extends Model
     
     protected $fillable = ['user_id', 'total_amount',];
 
+    protected static function booted()
+    {
+        static::created(function($order)
+        {
+            $order->order_number = '#ORD-' . $order->created_at->format('Ymd') . '-' . str_pad($order->id, 4, '0', STR_PAD_LEFT);
+            $order->saveQuietly();
+        });
+    }
+
     public function user():BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -28,7 +37,7 @@ class Orders extends Model
 
     public function getFormattedIdAttributes()
     {
-        
+
     }
 
 }
