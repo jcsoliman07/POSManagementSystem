@@ -193,6 +193,7 @@
                                 </p>
                             </div>
                             <div>
+                                {{ $orders->links('pagination::tailwind') }}
                             </div>
                         </div>
                     </div>
