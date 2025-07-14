@@ -178,7 +178,20 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
+                </div>
 
+                <!-- Pagination -->
+                <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                    <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                        <div>
+                            <p class="text-sm text-gray-700">
+                                Showing <span class="font-medium">1</span> to <span class="font-medium">4</span> of <span class="font-medium">24</span> orders
+                            </p>
+                        </div>
+                        <div>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
