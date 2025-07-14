@@ -20,6 +20,7 @@ class OrdersFactory extends Factory
             //Filters user based on the role
             //fn($q) => $q->where('name', 'user')) limits its to  users whose role name is exactly 'user'
             'user_id'           => User::whereHas('role', fn($q) => $q->where('name', 'user'))->inRandomOrder()->first()?->id,
+            'customer'          =>fake()->name,
             'total_amount'      => 0,
         ];
     }
