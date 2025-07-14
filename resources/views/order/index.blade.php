@@ -90,13 +90,13 @@
                 <div class="bg-white rounded-md shadow overflow-hidden mb-8">
                     <div class="overflow-x-auto">
 
-                        <table>
-                            <thead>
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
 
                             </thead>
 
-                            <tbody>
-                                
+                            <tbody class="bg-white divide-y divide-gray-200">
+
                             </tbody>
                         </table>
 
