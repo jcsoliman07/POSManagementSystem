@@ -146,37 +146,37 @@
 
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($orders as $order)
-                                    
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-custom-yellow-darker">
-                                            {{ $order->order_number }}
-                                        </td>
+                                    @foreach ($orders->items as $item)
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-custom-yellow-darker">
+                                                {{ $order->order_number }}
+                                            </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            10:45 AM, Today
-                                        </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                10:45 AM, Today
+                                            </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            Staff
-                                        </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                Staff
+                                            </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            Sample
-                                        </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                Sample
+                                            </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            3
-                                        </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                3
+                                            </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            3
-                                        </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                3
+                                            </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <button class="text-indigo-600 hover:text-indigo-900">View</button>
-                                        </td>
-                                    </tr>
-
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                <button class="text-indigo-600 hover:text-indigo-900">View</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 @endforeach
                             </tbody>
                         </table>
