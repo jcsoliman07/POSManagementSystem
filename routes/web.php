@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\OrderItemsController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\OrderServiceController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SessionController;
@@ -37,6 +38,9 @@ Route::middleware(['auth', 'role:admin,super_admin', PreventBackHistory::class])
     Route::get('/products', [ProductsController::class, 'index']);
     Route::post('/products', [ProductsController::class, 'store']);
     Route::put('/products/{product}', [ProductsController::class, 'update'])->name('products.update');
+
+    //Order Management
+    Route::get('/order-management', [OrderItemsController::class, 'index']);
 
 });
 
