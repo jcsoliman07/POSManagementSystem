@@ -14,9 +14,10 @@ class OrderItemsController extends Controller
     {
         $orders = Orders::with([
                 'user:id,name', //The user for each Order
+                'items:id,order_id,product_id,quantity',
                 'items.product.category:id,name' //The items for each order, the product for each item, the category for each product
             ])
-            ->get();
+            ->paginate(10);
         
         // return response()->json($orders);
         return view('order.index', compact('orders'));
