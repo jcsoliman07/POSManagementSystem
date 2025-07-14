@@ -3,7 +3,7 @@
     <div class="mx-auto px-4">
         <div class="flex flex-cols flex-1 overflow-hidden">
             <!--Header Content-->
-            <div class="flex-1 overflow-auto p-6">
+            <div class="flex-1 overflow-auto p-2">
                 <div class="flex justify-between items-center mb-2">
                     <x-forms.heading>
                         Order Management 
