@@ -146,7 +146,7 @@
 
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($orders as $order)
-                                        <tr>
+                                        <tr class="hover:bg-gray-100">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-custom-yellow-darker">
                                                 {{ $order->order_number }}
                                             </td>
