@@ -88,7 +88,19 @@
 
                 <!-- Orders Table -->
                 <div class="bg-white rounded-md shadow overflow-hidden mb-8">
+                    <div class="overflow-x-auto">
 
+                        <table>
+                            <thead>
+
+                            </thead>
+
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
             </div>
         </div>
