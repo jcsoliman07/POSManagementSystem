@@ -146,7 +146,6 @@
 
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($orders as $order)
-                                    @foreach ($orders->items as $item)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-custom-yellow-darker">
                                                 {{ $order->order_number }}
@@ -157,7 +156,7 @@
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                Staff
+                                                {{ $order->user->name }}
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -176,7 +175,6 @@
                                                 <button class="text-indigo-600 hover:text-indigo-900">View</button>
                                             </td>
                                         </tr>
-                                    @endforeach
                                 @endforeach
                             </tbody>
                         </table>
