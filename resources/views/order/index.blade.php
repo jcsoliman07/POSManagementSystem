@@ -152,7 +152,7 @@
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                10:45 AM, Today
+                                                {{ $order->formatted_created_at }}
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
