@@ -188,7 +188,7 @@
                                     Showing 
                                     <span class="font-medium">{{ $orders->firstItem() }}</span> 
                                     to <span class="font-medium">{{ $orders->lastItem() }}</span> 
-                                    of <span class="font-medium">24</span> 
+                                    of <span class="font-medium">{{ $orders->total() }}</span> 
                                     orders
                                 </p>
                             </div>
