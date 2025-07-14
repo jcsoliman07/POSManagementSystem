@@ -26,4 +26,9 @@ class Orders extends Model
         return $this->hasMany(OrderItems::class, 'order_id');
     }
 
+    public function getFormattedIdAttributes()
+    {
+        
+    }
+
 }
