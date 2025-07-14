@@ -1,7 +1,6 @@
 <x-index>
 
     <div class="mx-auto px-4">
-
         <div class="flex flex-cols flex-1 overflow-hidden">
             <!--Header Content-->
             <div class="flex-1 overflow-auto p-6">
@@ -84,6 +83,12 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">To Date</label>
                             <input type="date" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
                         </div>
+                    </div>
+                </div>
+
+                <!-- Orders Table -->
+                <div class="bg-white rounded-md shadow overflow-hidden mb-8">
+
                 </div>
             </div>
         </div>
