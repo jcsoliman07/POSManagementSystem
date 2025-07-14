@@ -148,8 +148,8 @@
                                 @foreach ($orders as $order)
                                     
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            #ORD-1001
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-custom-yellow-darker">
+                                            {{ $order->order_number }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
