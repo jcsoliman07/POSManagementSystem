@@ -16,6 +16,7 @@ class Orders extends Model
     
     protected $fillable = ['user_id', 'total_amount',];
 
+    //Formatted Order Number
     protected static function booted()
     {
         static::created(function($order)
