@@ -27,7 +27,7 @@ class Orders extends Model
     }
     
     //Formatted Created At
-    public function getFormattedCreatedAttributes()
+    public function getFormattedCreatedAtAttribute()
     {
         $createdAt = $this->created_at;
 
