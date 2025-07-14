@@ -31,13 +31,13 @@ class Orders extends Model
     {
         $createdAt = $this->created_at;
 
-        if ($createdAt->isToday()) {
+        if ($createdAt->isToday()) { //If the date is today or current date
             return 'Today, ' . $createdAt->format('h:i A');
         }
-        elseif ($createdAt->isYesterday()){
+        elseif ($createdAt->isYesterday()){ //If the date is yesterday or previous date
             return 'Yesterday, ' . $createdAt->format('h:i A');
         }
-        else{
+        else{ //If the date is two or more date late
             return $createdAt->format('M-d-Y, h:i A');
         }
     }
