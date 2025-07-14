@@ -26,6 +26,15 @@ class Orders extends Model
         });
     }
 
+    public function getFormattedCreatedAttributes()
+    {
+        $createdAt = $this->created_at;
+
+        if ($createdAt->isToday()) {
+            return 'Today, ' . $createdAt->format('h:i A');
+        }
+    }
+
     public function user():BelongsTo
     {
         return $this->belongsTo(User::class);
