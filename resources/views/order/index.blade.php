@@ -8,7 +8,7 @@
                 <div class="flex justify-between items-center mb-2">
                     <x-forms.heading>
                         Order Management 
-                        <i class="fas fa-shopping-cart text-blue-400 text-2xl"></i>
+                        <i class="fas fa-shopping-cart text-custom-yellow text-2xl"></i>
                     </x-forms.heading>
 
                     <div class="">
