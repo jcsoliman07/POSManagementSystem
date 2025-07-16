@@ -18,7 +18,7 @@ class DashboardStatsService{
                     SUM(order_items.quantity) as total_items_sold
                 
                 ')
-                ->whereDate('orders.created_at', [$startDate,$endDate])
+                ->whereBetween('orders.created_at', [$startDate,$endDate])
                 ->first();
     }
 
