@@ -22,4 +22,10 @@ class DashboardStatsService{
                 ->first();
     }
 
+    //Get todays statistics
+    public function getTodayStats()
+    {
+        return $this->getStatsBetween(now()->startOfDay(),now()->endOfDay());
+    }
+
 }
