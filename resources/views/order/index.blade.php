@@ -20,7 +20,7 @@
                 <!-- Stats Cards Row -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <!-- Today's Revenue Card -->
-                    <div class="bg-white rounded-lg shadow p-6">
+                    <div class="bg-white rounded-lg shadow p-6 hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition duration-300">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 font-medium">Today's Revenue</p>
