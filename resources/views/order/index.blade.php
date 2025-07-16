@@ -33,7 +33,7 @@
                         <p class="mt-2 text-sm text-gray-500">+12% from yesterday</p>
                     </div>
                     <!-- Today's Orders Card -->
-                    <div class="bg-white rounded-lg shadow p-6">
+                    <div class="bg-white rounded-lg shadow p-6 hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition duration-300">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 font-medium">Today's Orders</p>
@@ -46,7 +46,7 @@
                         <p class="mt-2 text-sm text-gray-500">+5 from yesterday</p>
                     </div>
                     <!-- Today's Order Items Card -->
-                    <div class="bg-white rounded-lg shadow p-6">
+                    <div class="bg-white rounded-lg shadow p-6 hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition duration-300">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 font-medium">Today's Items Sold</p>
