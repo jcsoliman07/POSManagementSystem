@@ -37,16 +37,7 @@ class DashboardStatsService{
     {
         $start = now('Asia/Manila')->startOfDay();
         $end = now('Asia/Manila')->endOfDay();
-
-        FacadesLog::info('Fetching stats between: ', ['start' => $start, 'end' => $end]);
-
-        $stats = $this -> getStatsBetween($start, $end);
-
-        FacadesLog::info('Fetch stats:', (array) $stats);
-
-        return $stats;
-            
-        // return $this->getStatsBetween($start, $end);
+        return $this -> getStatsBetween($start, $end);
     }
 
     // //Get yesterdays statistics
