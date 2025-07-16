@@ -172,7 +172,9 @@
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                <button class="text-indigo-600 hover:text-indigo-900">View</button>
+                                                {{-- <button class="text-indigo-600 hover:text-indigo-900">View</button> --}}
+                                                <x-buttons.view-order-items-button :order="$order" >View</x-buttons.view-order-items-button>
+                                                <x-modal.view-order-items-modal :order="$order"/>
                                             </td>
                                         </tr>
                                 @endforeach
