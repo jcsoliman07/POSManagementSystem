@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Orders;
 use App\Services\DashboardStatsService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class DashBoardController extends Controller
 {
@@ -24,14 +21,17 @@ class DashBoardController extends Controller
 
     public function index()
     {
-
+ 
         $user = Auth::user();
 
         // $todayStats = Orders::selectRaw('COUNT(*) as order_count, SUM(total_amount) as revenue')
         //         ->whereDate('created_at', today()) //Filter using date today
-        //         ->first();
+        //         ->first();s
 
         $todayStats = $this->dashboardStatsService->getTodayStats();
+
+
+        $todayRevenue = $todayStats->revenue ?? 0;
 
         return view('components.dashboard', compact('user', 'todayStats'));
     }
