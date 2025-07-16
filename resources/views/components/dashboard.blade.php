@@ -17,7 +17,7 @@
         <x-forms.paragraph class="text-md mb-6 border-b pb-2">This is the main content area. You can add your POS components here.</x-forms.paragraph>
         
         <!-- Dashboard grid Data -->
-        <div class="grid grid-cols-12 auto-rows-[minmax(120px,_auto)] ga-5">
+        <div class="grid grid-cols-12 auto-rows-[minmax(120px,_auto)] gap-5">
             <div class="bg-white p-6 rounded-xl shadow metric-card col-span-3">
                 <div class="flex items-center">
                     <div class="p-3 rounded-lg bg-blue-50 text-blue-600 mr-4">
