@@ -84,7 +84,7 @@
                                             {{ $item->quantity }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                           ₱ {{ number_format($item->product->price * $item->quantity , 2, '.', ',') }}
+                                           ₱ {{ number_format($item->total_price , 2) }}
                                         </td>
                                     </tr>
                                 @endforeach
