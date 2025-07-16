@@ -15,7 +15,7 @@ class DashboardStatsService{
         //Orders Count and Revenue
         $orderStats = DB::table('orders')
             ->whereBetween('created_at', [$startDate, $endDate])
-            ->selectRaw('COUNT(id) as order_count, SUM(total_amount) as revenue, COUNT(customer) as customer_count')
+            ->selectRaw('COUNT(id) as order_count, SUM(total_amount) as revenue, COUNT(DISTINCT customer) as customer_count')
             ->first();
 
         //Total Items Sold
