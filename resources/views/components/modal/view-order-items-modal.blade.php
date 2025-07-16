@@ -93,6 +93,27 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Order Totals -->
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="flex justify-end">
+                    <div class="w-full md:w-1/3">
+                        <div class="flex justify-between py-2 border-t border-gray-200 mt-2">
+                            <span class="text-base font-medium">Total:</span>
+                            <span class="text-base font-medium">₱ {{ number_format($order->total_amount , 2 ,'.', ',') }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 flex gap-2 justify-end">
+                <x-buttons.button-cancel 
+                    onclick="closeModal('view-order-items-modal{{ $order->id }}')"
+                >
+                    Close
+                </x-buttons.button-cancel>
+            </div>
+
         </div>
     </div>
 </div>
