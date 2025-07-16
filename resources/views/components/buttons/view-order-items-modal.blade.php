@@ -1,4 +1,4 @@
-@props(['icon'])
+@props([])
 
 <button
     type="button"
