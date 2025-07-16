@@ -44,6 +44,19 @@
                 </div>
             </div>
 
+            <div class="bg-white p-6 rounded-xl shadow metric-card col-span-3">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-lg bg-purple-50 text-purple-600 mr-4">
+                        <i class="fa-solid fa-clipboard"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">Total Items</p>
+                        <h3 class="text-2xl font-bold">{{ $todayStats->total_items_sold ?? 0 }}</h3>
+                        <p class="text-green-500 text-sm mt-1">+15% from yesterday</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
