@@ -37,7 +37,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 font-medium">Today's Orders</p>
-                                <h3 class="text-2xl font-bold text-custom-yellow">42</h3>
+                                <h3 class="text-2xl font-bold text-custom-yellow">{{ $todayStats->order_count ?? 0 }}</h3>
                             </div>
                             <div class="p-3 rounded-full bg-custom-yellow-light text-custom-yellow">
                                 <i class="fas fa-shopping-cart text-xl"></i>
