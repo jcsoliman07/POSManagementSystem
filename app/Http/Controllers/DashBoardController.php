@@ -30,9 +30,6 @@ class DashBoardController extends Controller
 
         $todayStats = $this->dashboardStatsService->getTodayStats();
 
-
-        $todayRevenue = $todayStats->revenue ?? 0;
-
         return view('components.dashboard', compact('user', 'todayStats'));
     }
 }
