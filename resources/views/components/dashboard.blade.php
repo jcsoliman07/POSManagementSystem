@@ -16,37 +16,22 @@
         </x-forms.heading>
         <x-forms.paragraph class="text-md mb-6 border-b pb-2">This is the main content area. You can add your POS components here.</x-forms.paragraph>
         
-        <!-- Status cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <p class="text-sm text-blue-600">Today's Orders</p>
-                        <p class="text-2xl font-bold mt-2">{{ $todayStats->order_count ?? 0 }}</p> <!-- Count of Today Orders -->
+        <!-- Dashboard grid Data -->
+        <div class="grid grid-cols-12 auto-rows-[minmax(120px,_auto)] ga-5">
+            <div class="bg-white p-6 rounded-xl shadow metric-card col-span-3">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-lg bg-blue-50 text-blue-600 mr-4">
+                        <i class="fas fa-shopping-cart text-blue-400 text-2xl"></i>
                     </div>
-                    <i class="fas fa-shopping-cart text-blue-400 text-2xl"></i>
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">Today's Revenue</p>
+                        <h3 class="text-2xl font-bold">₱ {{ number_format($todayStats->total_amount ?? 0, 2) }}</h3>
+                        <p class="text-green-500 text-sm mt-1">+12% from yesterday</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <p class="text-sm text-green-600">Today's Revenue</p>
-                        <p class="text-2xl font-bold mt-2">₱ {{ number_format($todayStats->revenue ?? 0, 2) }}</p> <!-- Count of Today Revenue or Sales -->
-                    </div>
-                    <i class="fas fa-peso-sign text-green-400 text-2xl"></i>
-                </div>
-            </div>
-            
-            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <p class="text-sm text-yellow-600">Today's Product Sold</p>
-                        <p class="text-2xl font-bold mt-2">{{ $todayStats->total_items_sold ?? 0}}</p>
-                    </div>
-                    <i class="fas fa-shopping-cart text-yellow-400 text-2xl"></i>
-                </div>
-            </div>
+
         </div>
+
     </div>
 </x-index>
