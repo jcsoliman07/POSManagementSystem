@@ -28,4 +28,11 @@ class DashboardStatsService{
         return $this->getStatsBetween(now()->startOfDay(),now()->endOfDay());
     }
 
+    //Get yesterdays statistics
+    public function getYesterdayStats()
+    {
+        $yesterday = now()->subDay();
+        return $this->getStatsBetween($yesterday->startOfDay(),$yesterday->endOfDay());
+    }
+
 }
