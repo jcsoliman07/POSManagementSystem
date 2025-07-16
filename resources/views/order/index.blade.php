@@ -24,7 +24,7 @@
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-500 font-medium">Today's Revenue</p>
-                                <h3 class="text-2xl font-bold text-custom-yellow">$5,482.50</h3>
+                                <h3 class="text-2xl font-bold text-custom-yellow">₱ {{ number_format($todayStats->total_amount ?? 0, 2)}} </h3>
                             </div>
                             <div class="p-3 rounded-full bg-custom-yellow-light text-custom-yellow">
                                 <i class="fas fa-dollar-sign text-xl"></i>
