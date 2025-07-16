@@ -22,4 +22,10 @@ class OrderItems extends Model
     {
         return $this->belongsTo(Products::class);
     }
+
+    //Computed Price and Quantity
+    public function getTotalPriceAttribute()
+    {
+        return $this->product->price *  $this->quantity;
+    }
 }
