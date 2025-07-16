@@ -19,6 +19,28 @@
                         <span class="sr-only">Close modal</span>
                 </button>
             </div>
+            
+            <!-- Modal Content -->
+            <div class="p-6 space-y-2">
+                <!-- Order Summary -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="text-sm font-medium text-gray-500">Order Number</h4>
+                        <p class="text-gray-800">{{ $order->order_number }}</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="text-sm font-medium text-gray-500">Order Date</h4>
+                        <p class="text-gray-800">{{ $order->formatted_created_at }}</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="text-sm font-medium text-gray-500">Payment Method:</h4>
+                        <p class="text-green-800 font-medium">Cash</p>
+                    </div>
+                </div>
+
+                
+
+            </div>
 
         </div>
     </div>
