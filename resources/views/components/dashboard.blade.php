@@ -31,6 +31,19 @@
                 </div>
             </div>
 
+            <div class="bg-white p-6 rounded-xl shadow metric-card col-span-3">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-lg bg-green-50 text-green-600 mr-4">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">Today's Orders</p>
+                        <h3 class="text-2xl font-bold">{{ $todayStats->order_count ?? 0 }}</h3>
+                        <p class="text-green-500 text-sm mt-1">+6% from yesterday</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
