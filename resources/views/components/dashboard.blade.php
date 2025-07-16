@@ -18,7 +18,7 @@
         
         <!-- Dashboard grid Data -->
         <div class="grid grid-cols-12 auto-rows-[minmax(120px,_auto)] gap-5">
-            <div class="bg-white p-6 rounded-xl shadow col-span-3 hover:-translate-y-[5px] hover:shadow-lg transition-all duration-300 ease-in-out">
+            <div class="bg-white p-6 rounded-xl shadow col-span-3 hover:-translate-y-[5px] hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
                 <div class="flex items-center">
                     <div class="p-3 rounded-lg bg-blue-50 text-blue-600 mr-4">
                         <i class="fas fa-shopping-cart text-blue-400 text-2xl"></i>
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow col-span-3 hover:-translate-y-[5px] hover:shadow-lg transition-all duration-300 ease-in-out">
+            <div class="bg-white p-6 rounded-xl shadow col-span-3 hover:-translate-y-[5px] hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
                 <div class="flex items-center">
                     <div class="p-3 rounded-lg bg-green-50 text-green-600 mr-4">
                         <i class="fa-solid fa-bag-shopping"></i>
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow col-span-3 hover:-translate-y-[5px] hover:shadow-lg transition-all duration-300 ease-in-out">
+            <div class="bg-white p-6 rounded-xl shadow col-span-3 hover:-translate-y-[5px] hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
                 <div class="flex items-center">
                     <div class="p-3 rounded-lg bg-purple-50 text-purple-600 mr-4">
                         <i class="fa-solid fa-clipboard"></i>
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow col-span-3 hover:-translate-y-[5px] hover:shadow-lg transition-all duration-300 ease-in-out">
+            <div class="bg-white p-6 rounded-xl shadow col-span-3 hover:-translate-y-[5px] hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
                 <div class="flex items-center">
                     <div class="p-3 rounded-lg bg-orange-50 text-orange-600 mr-4">
                         <i class="fa-solid fa-people-group"></i>
