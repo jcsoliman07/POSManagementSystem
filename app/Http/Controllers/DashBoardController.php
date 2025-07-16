@@ -12,13 +12,13 @@ class DashBoardController extends Controller
 {
     //Declare a protected property to hold a instance of DashboardStatsService
     //This allows us to access the service methods through controller
-    protected $dasboardStatsService;
+    protected $dashboardStatsService;
 
     //This constructor automatically gives us access to the DashboardStatsService
     //We can use the methods im this controller
-    public function __construct(DashboardStatsService $dasboardStatsService)
+    public function __construct(DashboardStatsService $dashboardStatsService)
     {
-        $this->dasboardStatsService = $dasboardStatsService;
+        $this->dashboardStatsService = $dashboardStatsService;
     }
 
 
@@ -31,16 +31,7 @@ class DashBoardController extends Controller
         //         ->whereDate('created_at', today()) //Filter using date today
         //         ->first();
 
-        $todayStats = DB::table('orders')
-                ->join('order_items', 'orders.id', '=' , 'order_items.order_id' )
-                ->selectRaw('
-                    COUNT(DISTINCT orders.id) as order_count,
-                    SUM(orders.total_amount) as revenue,
-                    SUM(order_items.quantity) as total_items_sold
-                
-                ')
-                ->whereDate('orders.created_at', today())
-                ->first();
+        $todayStats = $this->dashboardStatsService->getTodayStats();
 
         return view('components.dashboard', compact('user', 'todayStats'));
     }
