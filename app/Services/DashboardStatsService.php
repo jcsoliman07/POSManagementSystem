@@ -44,7 +44,7 @@ class DashboardStatsService{
     //Get yesterdays statistics
     public function getYesterdayStats()
     {
-        $yesterday = now()->subDay();
+        $yesterday = now('Asia/Manila')->subDay();
         return $this->getStatsBetween($yesterday->startOfDay(),$yesterday->endOfDay());
     }
 
