@@ -72,6 +72,16 @@ class DashboardStatsService{
         );
     }
 
+    public function getOrderItemDiferencePercentage()
+    {
+        //Use function calculatePercentageDifference
+        return $this->calculatePercentageDifference(
+            $this->getYesterdayStats()->total_items_sold,
+            $this->getTodayStats()->total_items_sold,
+            'Order Items'
+        );
+    }
+
     //Reusable Calculation of Percentage
     protected function calculatePercentageDifference($yesterdayValue, $todayValue, $label = 'Value')
     {
