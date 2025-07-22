@@ -89,6 +89,11 @@ class DashboardStatsService{
         //Get the Yesterday Order
         $yesterdayStart = $this->getYesterdayStats();
         $yesterdayOrder = $yesterdayStart->order_count ?? 0;
+
+        Log::info("Todays Order : $todayOrder");
+        Log::info("Yesterday Order : $yesterdayOrder");
+
+        return $this->getOrderDifferencePercentage($todayOrder, $yesterdayOrder);
     }
 
 }
