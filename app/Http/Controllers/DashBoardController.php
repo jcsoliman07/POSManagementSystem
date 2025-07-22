@@ -31,7 +31,7 @@ class DashBoardController extends Controller
         $todayStats = $this->dashboardStatsService->getTodayStats();
         $yesterdatStats = $this->dashboardStatsService->getYesterdayStats();
         $RevenueDifferencePercentage = $this->dashboardStatsService->getRevenueDifferencePercentage();
-        $OrderDifferencePercentege = $this->dashboardStatsService->getOrderDifferencePercentage();
+        $OrderDifferencePercentage = $this->dashboardStatsService->getOrderDifferencePercentage();
         
         return view('components.dashboard',
                 compact(
@@ -39,7 +39,7 @@ class DashBoardController extends Controller
                     'todayStats',
                     'yesterdatStats',
                     'RevenueDifferencePercentage',
-                    'OrderDifferencePercentege'
+                    'OrderDifferencePercentage'
                 ));
     }
 }
