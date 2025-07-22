@@ -75,7 +75,9 @@
                     <div>
                         <p class="text-gray-500 text-sm mb-1">Customers for Today</p>
                         <h3 class="text-2xl font-bold">{{ $todayStats->customer_count ?? 0 }}</h3>
-                        <p class="text-green-500 text-sm mt-1">+8% from yesterday</p>
+                        <p class="text-sm mt-1
+                            {{ $CustomerDiferencePercentage >= 50 ? 'text-green-500' : ($CustomerDiferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500')}}"
+                        >{{ $CustomerDiferencePercentage >= 0 ? '+' : '' }} {{ $CustomerDiferencePercentage }}% from yesterday</p>
                     </div>
                 </div>
             </div>
