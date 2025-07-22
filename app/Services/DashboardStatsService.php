@@ -21,8 +21,7 @@ class DashboardStatsService{
         $totalItemsSold = DB::table('order_items')
             ->join('orders' , 'order_items.order_id', '=' , 'orders.id')
             ->whereBetween('orders.created_at', [$startDate, $endDate])
-            ->selectRaw('SUM(order_items.quantity) as total_items_sold')
-            ->value('total_items_sold');
+            ->sum('order_items.quantity'); //Optimize from selectRaw then value to a SUM method
         
         return (object)[
             'order_count'       => $orderStats->order_count ?? 0,
@@ -110,7 +109,7 @@ class DashboardStatsService{
     //Reusable Calculation of Percentage
     protected function calculatePercentageDifference()
     {
-        
+
     }
 
 }
