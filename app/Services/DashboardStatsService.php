@@ -107,9 +107,18 @@ class DashboardStatsService{
     }
 
     //Reusable Calculation of Percentage
-    protected function calculatePercentageDifference()
+    protected function calculatePercentageDifference($yesterdayValue, $todayValue, $label = 'Value')
     {
+        Log::info("Todays $label : $todayValue");
+        Log::info("Yesterday $label : $yesterdayValue");
 
+        if ($yesterdayValue == 0) {
+            return $todayValue == 0 ? 0: 100;
+        }
+
+        $differencePercentage = (($todayValue - $yesterdayValue) / $yesterdayValue) * 100;
+
+        return round($differencePercentage, 2);
     }
 
 }
