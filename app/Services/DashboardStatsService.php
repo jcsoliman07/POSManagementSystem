@@ -58,7 +58,12 @@ class DashboardStatsService{
         $todayStats = $this->getTodayStats();
         $todayRevenue = $todayStats->total_amount ?? 0;
 
+        //Get Yesterdays Revenue
+        $yesterdayStat = $this->getYesterdayStats();
+        $yesterdayRevenue = $yesterdayStat->total_amount ?? 0;
+
         Log::info("Todays Revenue: $todayRevenue");
+        Log::info("Yesterday Revenue: $yesterdayRevenue");
 
     }
 
