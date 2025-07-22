@@ -112,10 +112,15 @@ class DashboardStatsService{
         Log::info("Todays $label : $todayValue");
         Log::info("Yesterday $label : $yesterdayValue");
 
+        //Avoid dividing to zero
         if ($yesterdayValue == 0) {
             return $todayValue == 0 ? 0: 100;
         }
-
+        
+        //Calculate Difference Percentage
+        //To get Percentage value, we divide the dividend to divisor and then multiple to 100 (max percent)
+        //How much order has increased or decreased compared to yesterday
+        //To get we need first subtract today to yesterday, divide to testerday and then multiply by 100
         $differencePercentage = (($todayValue - $yesterdayValue) / $yesterdayValue) * 100;
 
         return round($differencePercentage, 2);
