@@ -27,8 +27,8 @@
                         <p class="text-gray-500 text-sm mb-1">Today's Revenue</p>
                         <h3 class="text-2xl font-bold">₱ {{ number_format($todayStats->total_amount ?? 0, 2) }}</h3>
                         <p class="text-sm mt-1
-                            {{ $RevenueDifferencePercentege >= 50 ? 'text-green-500' : ($RevenueDifferencePercentege >= 0 ? 'text-yellow-500' : 'text-red-500')  }}
-                        "> {{ $RevenueDifferencePercentege >= 0 ? '+' : '' }} {{ $RevenueDifferencePercentege }}% from yesterday
+                            {{ $RevenueDifferencePercentage >= 50 ? 'text-green-500' : ($RevenueDifferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500')  }}
+                        "> {{ $RevenueDifferencePercentage >= 0 ? '+' : '' }} {{ $RevenueDifferencePercentage }}% from yesterday
                         </p>
                     </div>
                 </div>
@@ -43,8 +43,8 @@
                         <p class="text-gray-500 text-sm mb-1">Today's Orders</p>
                         <h3 class="text-2xl font-bold">{{ $todayStats->order_count ?? 0 }}</h3>
                         <p class="text-sm mt-1
-                                {{ $OrderDifferencePercentege >= 50 ? 'text-green-500' : ($OrderDifferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500') }}
-                        ">{{ $OrderDifferencePercentege >= 0 ? '+' : '' }} {{ $OrderDifferencePercentege }}% from yesterday
+                                {{ $OrderDifferencePercentage >= 50 ? 'text-green-500' : ($OrderDifferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500') }}
+                        ">{{ $OrderDifferencePercentage >= 0 ? '+' : '' }} {{ $OrderDifferencePercentage }}% from yesterday
                         </p>
                     </div>
                 </div>
