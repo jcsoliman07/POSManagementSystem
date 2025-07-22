@@ -70,6 +70,14 @@ class DashboardStatsService{
             return $todayRevenue == 0 ? 0 : 100; //Then if Today Revenue is 0 no change, if Today Revenue > 0 display 100%
         }
 
+        //Calculate the percentage
+        //To get Percentage value, we divide the dividend to divisor and then multiple to 100 (max percent)
+        //RevenuePercentage - how much revenue has increased or decreased compared to yesterday
+        //To get we need first subtract today to yesterday, divide to testerday and then multiply by 100
+        $RevenuePercentage = (($todayRevenue - $yesterdayRevenue) / $yesterdayRevenue) * 100;
+
+        
+
     }
 
 }
