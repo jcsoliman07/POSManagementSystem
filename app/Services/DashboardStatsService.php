@@ -93,7 +93,18 @@ class DashboardStatsService{
         Log::info("Todays Order : $todayOrder");
         Log::info("Yesterday Order : $yesterdayOrder");
 
-        return $this->getOrderDifferencePercentage($todayOrder, $yesterdayOrder);
+        //Avoid dividing to zero
+        if ($yesterdayOrder == 0) { //If Yesrteday Revenue is 0 
+            return $todayOrder == 0 ? 0 : 100; //Then if Today Revenue is 0 no change, if Today Revenue > 0 display 100%
+        }
+
+        //Calculate the percentage
+        //To get Percentage value, we divide the dividend to divisor and then multiple to 100 (max percent)
+        //OrderPercentage - how much order has increased or decreased compared to yesterday
+        //To get we need first subtract today to yesterday, divide to testerday and then multiply by 100
+        $OrderPercentage = (($todayOrder - $yesterdayOrder) / $yesterdayOrder) * 100;
+
+        return round($OrderPercentage, 2);
     }
 
 }
