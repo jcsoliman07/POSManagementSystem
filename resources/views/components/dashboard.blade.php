@@ -58,7 +58,11 @@
                     <div>
                         <p class="text-gray-500 text-sm mb-1">Total Items</p>
                         <h3 class="text-2xl font-bold">{{ $todayStats->total_items_sold ?? 0 }}</h3>
-                        <p class="text-green-500 text-sm mt-1">+15% from yesterday</p>
+                        <p class="text-sm mt-1
+                            {{ $OrderItemDiferencePercentage >= 50 ? 'text-green-500' : ($OrderItemDiferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500')}}"
+                        >
+                            {{ $OrderItemDiferencePercentage >= 0 ? '+' : ' ' }} {{ $OrderItemDiferencePercentage }}% from yesterday
+                        </p>
                     </div>
                 </div>
             </div>
