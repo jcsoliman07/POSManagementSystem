@@ -52,4 +52,9 @@ class DashboardStatsService{
         return $this->getStatsBetween($yesterdayStart, $yesterdayend);
     }
 
+    public function getRevenueDifferencePercentage()
+    {
+
+    }
+
 }
