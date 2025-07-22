@@ -65,6 +65,11 @@ class DashboardStatsService{
         Log::info("Todays Revenue: $todayRevenue");
         Log::info("Yesterday Revenue: $yesterdayRevenue");
 
+        //Avoid diving to zero
+        if ($yesterdayRevenue == 0) { //If Yesrteday Revenue is 0 
+            return $todayRevenue == 0 ? 0 : 100; //Then if Today Revenue is 0 no change, if Today Revenue > 0 display 100%
+        }
+
     }
 
 }
