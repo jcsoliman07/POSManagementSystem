@@ -29,7 +29,7 @@ class DashBoardController extends Controller
         //         ->first();s
 
         $todayStats = $this->dashboardStatsService->getTodayStats();
-        $yesterdatStast = $this->dashboardStatsService->getYesterdayStats();
+        $yesterdatStats = $this->dashboardStatsService->getYesterdayStats();
 
         return view('components.dashboard', compact('user', 'todayStats'));
     }
