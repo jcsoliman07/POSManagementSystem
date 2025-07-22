@@ -2,10 +2,9 @@
 
 namespace App\Services;
 
-use Illuminate\Container\Attributes\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Log as FacadesLog;
+use Illuminate\Support\Facades\Log;
 
 class DashboardStatsService{
 
@@ -36,7 +35,7 @@ class DashboardStatsService{
     //Get todays statistics
     public function getTodayStats()
     {
-        $start = now('Asia/Manila')->startOfDay();
+         $start = now('Asia/Manila')->startOfDay();
         $end = now('Asia/Manila')->endOfDay();
         return $this -> getStatsBetween($start, $end);
     }
@@ -44,8 +43,13 @@ class DashboardStatsService{
     //Get yesterdays statistics
     public function getYesterdayStats()
     {
-        $yesterday = now('Asia/Manila')->subDay();
-        return $this->getStatsBetween($yesterday->startOfDay(),$yesterday->endOfDay());
+        $yesterdayStart = now('Asia/Manila')->startOfDay()->subDay(); //subDay substract 1 day from the current time
+        $yesterdayend = now('Asia/Manila')->endOfDay()->subDay();
+
+        Log::info("Yesterday Start: $yesterdayStart");
+        Log::info("Yesterday End: $yesterdayend");
+
+        return $this->getStatsBetween($yesterdayStart, $yesterdayend);
     }
 
 }
