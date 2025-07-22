@@ -76,7 +76,7 @@ class DashboardStatsService{
         //To get we need first subtract today to yesterday, divide to testerday and then multiply by 100
         $RevenuePercentage = (($todayRevenue - $yesterdayRevenue) / $yesterdayRevenue) * 100;
 
-        
+        return round($RevenuePercentage, 2); //Round to 2 deceimal places
 
     }
 
