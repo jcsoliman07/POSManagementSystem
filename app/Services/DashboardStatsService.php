@@ -107,4 +107,10 @@ class DashboardStatsService{
         return round($OrderPercentage, 2);
     }
 
+    //Reusable Calculation of Percentage
+    protected function calculatePercentageDifference()
+    {
+        
+    }
+
 }
