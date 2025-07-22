@@ -82,6 +82,10 @@ class DashboardStatsService{
 
     public function getOrderDifferencePercentage()
     {
+        //Get the Todays Order
+        $todayStats = $this->getTodayStats();
+        $todayOrder = $todayStats->order_count ?? 0;
+
         
     }
 
