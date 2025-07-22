@@ -31,6 +31,6 @@ class DashBoardController extends Controller
         $todayStats = $this->dashboardStatsService->getTodayStats();
         $yesterdatStats = $this->dashboardStatsService->getYesterdayStats();
 
-        return view('components.dashboard', compact('user', 'todayStats'));
+        return view('components.dashboard', compact('user', 'todayStats', 'yesterdatStats'));
     }
 }
