@@ -26,7 +26,7 @@ class DashboardStatsService{
         return (object)[
             'order_count'       => $orderStats->order_count ?? 0,
             'total_amount'      => $orderStats->revenue ?? 0,
-            'total_items_sold'  => $totalItemsSold->total_items_sold ?? 0,
+            'total_items_sold'  => $totalItemsSold ?? 0,
             'customer_count'    => $orderStats->customer_count ?? 0,
         ];
     }
