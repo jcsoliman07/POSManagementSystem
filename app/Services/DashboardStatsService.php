@@ -86,8 +86,8 @@ class DashboardStatsService{
     {
         //Use function calculatePercentageDifference
         return $this->calculatePercentageDifference(
-            $this->getYesterdayStats()->total_items_sold,
-            $this->getTodayStats()->total_items_sold,
+            $this->getYesterdayStats()->customer_count,
+            $this->getTodayStats()->customer_count,
             'Customer'
         );
     }
