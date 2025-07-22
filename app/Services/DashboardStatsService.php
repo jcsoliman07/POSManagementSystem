@@ -54,6 +54,11 @@ class DashboardStatsService{
 
     public function getRevenueDifferencePercentage()
     {
+        //Get Todays Revenue
+        $todayStats = $this->getTodayStats();
+        $todayRevenue = $todayStats->total_amount ?? 0;
+
+        Log::info("Todays Revenue: $todayRevenue");
 
     }
 
