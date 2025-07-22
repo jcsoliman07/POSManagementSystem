@@ -52,58 +52,24 @@ class DashboardStatsService{
     }
 
     public function getRevenueDifferencePercentage()
-    {
-        //Get Todays Revenue
-        $todayStats = $this->getTodayStats();
-        $todayRevenue = $todayStats->total_amount ?? 0;
-
-        //Get Yesterdays Revenue
-        $yesterdayStat = $this->getYesterdayStats();
-        $yesterdayRevenue = $yesterdayStat->total_amount ?? 0;
-
-        Log::info("Todays Revenue: $todayRevenue");
-        Log::info("Yesterday Revenue: $yesterdayRevenue");
-
-        //Avoid diving to zero
-        if ($yesterdayRevenue == 0) { //If Yesrteday Revenue is 0 
-            return $todayRevenue == 0 ? 0 : 100; //Then if Today Revenue is 0 no change, if Today Revenue > 0 display 100%
-        }
-
-        //Calculate the percentage
-        //To get Percentage value, we divide the dividend to divisor and then multiple to 100 (max percent)
-        //RevenuePercentage - how much revenue has increased or decreased compared to yesterday
-        //To get we need first subtract today to yesterday, divide to testerday and then multiply by 100
-        $RevenuePercentage = (($todayRevenue - $yesterdayRevenue) / $yesterdayRevenue) * 100;
-
-        return round($RevenuePercentage, 2); //Round to 2 deceimal places
+    {   
+        //Use the function calculatePercentageDifference
+        return $this->calculatePercentageDifference(
+            $this->getYesterdayStats()->total_amount ?? 0,
+            $this->getTodayStats()->total_amount ?? 0,
+            'Revenue'
+        );
 
     }
 
     public function getOrderDifferencePercentage()
     {
-        //Get the Todays Order
-        $todayStats = $this->getTodayStats();
-        $todayOrder = $todayStats->order_count ?? 0;
-
-        //Get the Yesterday Order
-        $yesterdayStart = $this->getYesterdayStats();
-        $yesterdayOrder = $yesterdayStart->order_count ?? 0;
-
-        Log::info("Todays Order : $todayOrder");
-        Log::info("Yesterday Order : $yesterdayOrder");
-
-        //Avoid dividing to zero
-        if ($yesterdayOrder == 0) { //If Yesrteday Revenue is 0 
-            return $todayOrder == 0 ? 0 : 100; //Then if Today Revenue is 0 no change, if Today Revenue > 0 display 100%
-        }
-
-        //Calculate the percentage
-        //To get Percentage value, we divide the dividend to divisor and then multiple to 100 (max percent)
-        //OrderPercentage - how much order has increased or decreased compared to yesterday
-        //To get we need first subtract today to yesterday, divide to testerday and then multiply by 100
-        $OrderPercentage = (($todayOrder - $yesterdayOrder) / $yesterdayOrder) * 100;
-
-        return round($OrderPercentage, 2);
+        //Use the function calculatePercentageDifference
+        return $this->calculatePercentageDifference(
+                $this->getYesterdayStats()->order_count ?? 0,
+                $this->getTodayStats()->order_count ?? 0,
+                'Order'
+        );
     }
 
     //Reusable Calculation of Percentage
