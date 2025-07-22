@@ -86,7 +86,9 @@ class DashboardStatsService{
         $todayStats = $this->getTodayStats();
         $todayOrder = $todayStats->order_count ?? 0;
 
-        
+        //Get the Yesterday Order
+        $yesterdayStart = $this->getYesterdayStats();
+        $yesterdayOrder = $yesterdayStart->order_count ?? 0;
     }
 
 }
