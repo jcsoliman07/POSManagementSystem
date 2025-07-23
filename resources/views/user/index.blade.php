@@ -196,6 +196,7 @@
         </div>
     </div>
 
+<script src="{{ asset('js/user.js') }}"></script>
 <script>
     //Passing products into global window object
     window.products = @json($products); //Makign accessible anywhere
