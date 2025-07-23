@@ -79,7 +79,7 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">From Date</label>
                             <input type="date" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
                         </div>
-                        <div>
+                        <div class="border-r-2 border-yellow-500 pr-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">To Date</label>
                             <input type="date" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
                         </div>
