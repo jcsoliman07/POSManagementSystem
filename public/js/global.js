@@ -41,41 +41,6 @@ function closeModal(modalId) {
     modal.classList.add('opacity-0', 'pointer-events-none');
 }
 
-//Update
-// function openModalCategory(modalId) {
-//     const modal = document.getElementById(modalId);
-//     if (modal) {
-//         modal.classList.remove('opacity-0', 'pointer-events-none');
-//         modal.classList.add('opacity-100', 'pointer-events-auto');
-//     }
-// }
-
-// function closeModalCategory(modalId) {
-//     const modal = document.getElementById(modalId);
-//     if (modal) {
-//         modal.classList.add('opacity-0', 'pointer-events-none');
-//         modal.classList.remove('opacity-100', 'pointer-events-auto');
-//     }
-// }
-
-//Destroy
-function openModalDestroy(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.remove('opacity-0', 'pointer-events-none');
-        modal.classList.add('opacity-100', 'pointer-events-auto');
-    }
-}
-
-function closeModalDestroy(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.add('opacity-0', 'pointer-events-none');
-        modal.classList.remove('opacity-100', 'pointer-events-auto');
-    }
-}
-// 
-
 // Product Category Button
 document.addEventListener('DOMContentLoaded', function () {
     // Product Category Button
@@ -240,5 +205,3 @@ document.getElementById('review-order-btn').addEventListener('click', function (
 document.getElementById('cancelReviewBtn').addEventListener('click', function () {
     document.getElementById('review-modal').classList.add('hidden');
 });
-
-
