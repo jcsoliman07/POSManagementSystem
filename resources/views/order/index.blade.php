@@ -62,12 +62,14 @@
 
 
                 <!-- Filters -->
-                <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-                    <div class="grid sm:grid-cols-1 md:grid-cols-4 gap-4">
-                        <!-- Filter Date Range Dropdown-->
-                        <div class="border-r border-yellow-500 pr-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
-                            <select id="filterDate" onchange="filterOrderData()" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <div class="flex flex-col md:flex-row md:items-end md:space-x-6 space-y-4 md:space-y-0">
+
+                        <!-- Date Range Dropdown with Border Right -->
+                        <div class="md:border-r border-yellow-400 md:pr-6 flex-1">
+                            <label class="block text-sm font-semibold text-gray-600 mb-2">Date Range</label>
+                            <select id="filterDate" onchange="filterOrderData()"
+                                class="w-full border border-gray-300 rounded-xl px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
                                 <option value="all">All</option>
                                 <option value="today">Today</option>
                                 <option value="yesterday">Yesterday</option>
@@ -75,15 +77,34 @@
                             </select>
                         </div>
 
-                        <div class="col-span-2 sm:col-span-1">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">From Date</label>
-                            <input type="date" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
+                        <!-- From and To Date Inputs -->
+                        <div class="flex-1">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                <label class="block text-sm font-semibold text-gray-600 mb-2">From Date</label>
+                                <input type="date"
+                                    class="w-full border border-gray-300 rounded-xl px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
+                                </div>
+                                <div>
+                                <label class="block text-sm font-semibold text-gray-600 mb-2">To Date</label>
+                                <input type="date"
+                                    class="w-full border border-gray-300 rounded-xl px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-span-2 sm:col-span-1 border-r border-yellow-500 pr-2">
-                            <label class="block text-sm font-medium text-gray-700 mb-1">To Date</label>
-                            <input type="date" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
+
+                        <!-- Filter & Reset Buttons -->
+                        <div class="flex items-end gap-3">
+                            <button title="Apply Filter"
+                                class="flex items-center justify-center w-10 h-10 rounded-xl bg-yellow-100 text-yellow-500 hover:bg-yellow-200 transition">
+                                <i class="fa-solid fa-filter"></i>
+                            </button>
+                            <button title="Reset Filter"
+                                class="flex items-center justify-center w-10 h-10 rounded-xl bg-yellow-100 text-yellow-500 hover:bg-yellow-200 transition">
+                                <i class="fa-solid fa-arrow-rotate-left"></i>
+                            </button>
                         </div>
-                        
+
                     </div>
                 </div>
 
