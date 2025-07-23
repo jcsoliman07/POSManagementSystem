@@ -65,7 +65,7 @@
                 <div class="bg-white rounded-lg shadow-md p-4 mb-6">
                     <div class="grid sm:grid-cols-1 md:grid-cols-4 gap-4">
                         <!-- Filter Date Range Dropdown-->
-                        <div class="border-r-2 border-yellow-500 pr-4">
+                        <div class="border-r border-yellow-500 pr-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
                             <select id="filterDate" onchange="filterOrderData()" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
                                 <option value="all">All</option>
@@ -75,14 +75,15 @@
                             </select>
                         </div>
 
-                        <div>
+                        <div class="col-span-2 sm:col-span-1">
                             <label class="block text-sm font-medium text-gray-700 mb-1">From Date</label>
                             <input type="date" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
                         </div>
-                        <div class="border-r-2 border-yellow-500 pr-4">
+                        <div class="col-span-2 sm:col-span-1 border-r border-yellow-500 pr-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">To Date</label>
                             <input type="date" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
                         </div>
+                        
                     </div>
                 </div>
 
