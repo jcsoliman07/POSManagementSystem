@@ -27,7 +27,7 @@ Route::middleware(['auth', PreventBackHistory::class])->group(function () {
 
 //Super Admin and Admin Dashboard
 Route::middleware(['auth', 'role:admin,super_admin', PreventBackHistory::class])->group(function() {
-    Route::get('/dashboard', [DashBoardController::class, 'index'])->name('dashboard');
+    Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
     //Category
     Route::get('/category', [CategoryController::class, 'index']);
