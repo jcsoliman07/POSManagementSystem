@@ -67,12 +67,12 @@
                         <!-- Filter Date Range Dropdown-->
                         <div class="border-r-2 border-yellow-500 pr-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
-                            <select class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
-                                <option>All</option>
-                                <option>Today</option>
-                                <option>Yesterday</option>
-                                <option>This Week</option>
-                                <option>This Month</option>
+                            <select id="filterDate" class="w-full border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 p-2">
+                                <option value="all">All</option>
+                                <option value="today">Today</option>
+                                <option value="yesterday">Yesterday</option>
+                                <option value="thisWeek">This Week</option>
+                                <option value="thisMonth">This Month</option>
                             </select>
                         </div>
 
