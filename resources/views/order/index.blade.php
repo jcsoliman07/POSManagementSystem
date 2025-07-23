@@ -63,7 +63,7 @@
 
                 <!-- Filters -->
                 <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-4">
                         <!-- Filter Date Range Dropdown-->
                         <div class="border-r-2 border-yellow-500 pr-4">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
