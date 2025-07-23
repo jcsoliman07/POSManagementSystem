@@ -1,3 +1,4 @@
+
 //Open Modal Form Function
 function toggleModal(modalId) {
     const modal = document.getElementById(modalId);
@@ -53,3 +54,62 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+//Function to Filter Order date from a dropdown
+function filterOrderData(){
+    const orderDateFilter = document.getElementById('filterDate').value;
+    const orderRow = document.querySelectorAll('#myOrderTable tbody tr'); //Get the row from tbody
+
+    const today = new Date(); //Create a new Date
+    let fromDate, toDate;
+
+    switch(orderDateFilter){
+        //Case if Today
+        case 'today':
+            console.log(fromDate = toDate = formatDate(today));
+            break;
+        //Case if Yesterday
+        case 'yesterday':
+            const yesterday = new Date(today);
+            yesterday.setDate(today.getDate() - 1); //Get todat date and subtract one to get yesterday date
+            console.log(fromDate = toDate = formatDate(yesterday));
+            break;
+        //Case if This Week
+        case 'thisWeek':
+            //Create a new Date
+            const firstDayofWeek = new Date(today);
+            //Set date todat
+            const day = today.getDay();
+            //Subract to get date of Monday
+            const difftoMonday = day == 0 ? 6 : day - 1;
+            firstDayofWeek.setDate(today.getDate() - difftoMonday);
+
+            console.log(fromDate = formatDate(firstDayofWeek)); // This will be the first day of the week (Monday)
+            console.log(toDate = formatDate(today)); //Until today
+            break;
+        //Case if No Filter, shows all rows
+        case 'all':
+            fromDate = toDate = '';
+            break;
+    }
+
+    orderRow.forEach(row => {
+        const rowDate = row.getAttribute('data-date');
+        if (!fromDate || (rowDate >= fromDate && rowDate <= toDate)) {
+            row.style.display = '';
+        }
+        else{
+            row.style.display = 'none';
+        }
+    })
+}
+
+//Function to format Date to YYYY-MM-DD
+function formatDate(date){
+    const year = date.getFullYear();
+    const month = (`0${date.getMonth() + 1}`).slice(-2);
+    const day = (`0${date.getDate()}`).slice(-2);
+
+    return `${year}-${month}-${day}`;
+}
