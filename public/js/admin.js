@@ -95,19 +95,22 @@ function filterOrderData(mode){ //Mode its either dropdown or daterange
                 fromDate = toDate = '';
                 break;
         }
+    }else if(mode === 'daterange'){
+        fromDate = document.getElementById('startDate').value;
+        toDate = document.getElementById('endDate').value;
+    }
 
         orderRow.forEach(row => {
             const rowDate = row.getAttribute('data-date');
-            if (!fromDate || (rowDate >= fromDate && rowDate <= toDate)) {
+            if (
+                (!fromDate && !toDate) || 
+                (rowDate >= fromDate && rowDate <= toDate)) {
                 row.style.display = '';
             }
             else{
                 row.style.display = 'none';
             }
         })
-    }else if(mode === 'daterange'){
-
-    }
 }
 
 //Function to format Date to YYYY-MM-DD
