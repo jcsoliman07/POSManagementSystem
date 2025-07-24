@@ -82,12 +82,12 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                 <label class="block text-sm font-semibold text-gray-600 mb-2">From Date</label>
-                                <input type="date" id="startDate"
+                                <input type="date" id="startDate" onchange="filterOrderData('dropdown')"
                                     class="w-full border border-gray-300 rounded-xl px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
                                 </div>
                                 <div>
                                 <label class="block text-sm font-semibold text-gray-600 mb-2">To Date</label>
-                                <input type="date" id="endDate"
+                                <input type="date" id="endDate" onchange="filterOrderData('dropdown')"
                                     class="w-full border border-gray-300 rounded-xl px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
                                 </div>
                             </div>
