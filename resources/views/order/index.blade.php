@@ -68,7 +68,7 @@
                         <!-- Date Range Dropdown with Border Right -->
                         <div class="md:border-r border-yellow-400 md:pr-6 flex-1">
                             <label class="block text-sm font-semibold text-gray-600 mb-2">Date Range</label>
-                            <select id="filterDate" onchange="filterOrderData()"
+                            <select id="filterDate" onchange="filterOrderData('dropdown')"
                                 class="w-full border border-gray-300 rounded-xl px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
                                 <option value="all">All</option>
                                 <option value="today">Today</option>
@@ -82,12 +82,12 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                 <label class="block text-sm font-semibold text-gray-600 mb-2">From Date</label>
-                                <input type="date"
+                                <input type="date" id="startDate"
                                     class="w-full border border-gray-300 rounded-xl px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
                                 </div>
                                 <div>
                                 <label class="block text-sm font-semibold text-gray-600 mb-2">To Date</label>
-                                <input type="date"
+                                <input type="date" id="endDate"
                                     class="w-full border border-gray-300 rounded-xl px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400">
                                 </div>
                             </div>
