@@ -151,6 +151,6 @@ class DashboardStatsService{
     
     public function getWeeklySalesChart()
     {
-
+        return $this->getSalesChart(); //Calling getSalesChart Method
     }
 }
