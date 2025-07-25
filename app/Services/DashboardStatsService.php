@@ -115,7 +115,17 @@ class DashboardStatsService{
     //Sales Chart for week
     protected function getSalesChart()
     {
-        
+        $startOfWeek = Carbon::now()->startOfWeek();
+        $endOfWeek = Carbon::now()->endOfWeek();
+
+        $weeklySales = DB::table('orders')
+                        ->selectRaw('DATE(created_at) as date, COUNT(id) as order_count, SUM(total_amount) as revenue, COUNT(DISTINCT customer) as customer_count')
+                        ->whereBetween('created_at', [$startOfWeek, $endOfWeek])
+                        ->groupBy(DB::raw('DATE(created_at)'))
+                        ->get();
+
+        Log::info("Start of the Week: $startOfWeek");
+        Log::info("Start of the Week: $endOfWeek");
     }
 
 }
