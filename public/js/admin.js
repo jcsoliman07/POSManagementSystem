@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //Function to Filter Order date from a dropdown
 function filterOrderData(mode){ //Mode its either dropdown or daterange
     const orderRow = document.querySelectorAll('#myOrderTable tbody tr'); //Get the row from tbody
+    const clearButton = document.getElementById('clearOrderRange');
 
     const today = new Date(); //Create a new Date
     let fromDate, toDate;
@@ -67,16 +68,19 @@ function filterOrderData(mode){ //Mode its either dropdown or daterange
         const orderDateFilter = document.getElementById('filterDate').value;
 
         switch(orderDateFilter){
+
             //Case if Today
             case 'today':
                 console.log(fromDate = toDate = formatDate(today));
                 break;
+
             //Case if Yesterday
             case 'yesterday':
                 const yesterday = new Date(today);
                 yesterday.setDate(today.getDate() - 1); //Get todat date and subtract one to get yesterday date
                 console.log(fromDate = toDate = formatDate(yesterday));
                 break;
+
             //Case if This Week
             case 'thisWeek':
                 //Create a new Date
@@ -90,6 +94,12 @@ function filterOrderData(mode){ //Mode its either dropdown or daterange
                 console.log(fromDate = formatDate(firstDayofWeek)); // This will be the first day of the week (Monday)
                 console.log(toDate = formatDate(today)); //Until today
                 break;
+
+            //Clear filter
+            case 'clear':
+                fromDate = toDate = '';
+                break;
+
             //Case if No Filter, shows all rows
             case 'all':
                 fromDate = toDate = '';
@@ -100,17 +110,17 @@ function filterOrderData(mode){ //Mode its either dropdown or daterange
         toDate = document.getElementById('endDate').value;
     }
 
-        orderRow.forEach(row => {
-            const rowDate = row.getAttribute('data-date');
-            if (
-                (!fromDate && !toDate) || 
-                (rowDate >= fromDate && rowDate <= toDate)) {
-                row.style.display = '';
-            }
-            else{
-                row.style.display = 'none';
-            }
-        })
+    orderRow.forEach(row => {
+        const rowDate = row.getAttribute('data-date');
+        if (
+            (!fromDate && !toDate) || 
+            (rowDate >= fromDate && rowDate <= toDate)) {
+            row.style.display = '';
+        }
+        else{
+            row.style.display = 'none';
+        }
+    })
 }
 
 //Function to format Date to YYYY-MM-DD
