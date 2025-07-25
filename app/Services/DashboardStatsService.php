@@ -112,4 +112,10 @@ class DashboardStatsService{
         return round($differencePercentage, 2);
     }
 
+    //Sales Chart for week
+    protected function getSalesChart()
+    {
+        
+    }
+
 }
