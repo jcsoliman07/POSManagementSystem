@@ -10,6 +10,9 @@
     
     <!-- Cusom CSS -->
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+
+    <!-- Char CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
 </head>
 <body class="bg-custom-light-gray font-sans flex h-screen overflow-hidden">
