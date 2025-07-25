@@ -131,3 +131,48 @@ function formatDate(date){
 
     return `${year}-${month}-${day}`;
 }
+
+
+//Line Graph for Weekly Sales
+document.addEventListener('DOMContentLoaded', function(){
+    //Access the inject global variable
+    const chartData = window.weekSalesChart;
+
+    const label = chartData.map(item => item.date); //Map the days for a week
+    const orderCounts = chartData.map(item => item.order_count); //Map the order count per day in a week
+
+    const salesChart = document.getElementById('salesChart').getContext('2d');
+    new Chart(salesChart, {
+        type: 'line',
+        data:{
+            labels: label,
+            datasets:[{
+                label: 'Order This Week',
+                data: orderCounts,
+                borderColor: 'yellow',
+                backgroundColor: 'rgba(255, 255, 255, 1)',
+                fill:true,
+                tension:0.3
+            }]
+        },
+        options:{
+            responsive: true,
+            scales:{
+                x:{
+                    title: {
+                        display: true,
+                        text: 'Date'
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Order Count'
+                    }
+                }
+            }
+        }
+    });
+
+});
