@@ -148,5 +148,9 @@ class DashboardStatsService{
         
         return $salesChart;
     }
+    
+    public function getWeeklySalesChart()
+    {
 
+    }
 }
