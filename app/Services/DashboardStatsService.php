@@ -128,7 +128,25 @@ class DashboardStatsService{
         Log::info("Start of the Week: $startOfWeek");
         Log::info("Start of the Week: $endOfWeek");
 
+        $salesChart = []; //Initialize and array to hold value: 7 days
+        $date = $startOfWeek->copy(); //Create a copy of Start Date of the week
+
+        while ($date->lte($endOfWeek)) { //Loop to get the start and end date of the week
+
+            $formattedDate = $date->toDateString(); //Format Date into string in 'YYYY-MM-DD'
+            $salesData = $weeklySales->get($formattedDate);
+
+            $salesChart[] = [
+                'date'              =>  $formattedDate,
+                'order_count'       =>  $salesData->order_count ?? 0,
+                'revenue'           =>  $salesData->revenue ?? 0,
+                'customer_count'    =>  $salesData->customer_count ??0,
+            ];
+
+            $date->addDay();
+        }
         
+        return $salesChart;
     }
 
 }
