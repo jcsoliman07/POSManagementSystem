@@ -87,10 +87,14 @@
                 <div class="flex justify-between items-center mb-6">
                     <x-forms.heading>Sales Trends</x-forms.heading>
                 </div>
-                <canvas id="salesChart" height="250"></canvas>
+                <canvas id="salesChart" class="max-h-2xl"></canvas>
             </div>
 
         </div>
 
     </div>
+
+<script>
+    window.weekSalesChart = @json($weekSalesChart);
+</script>
 </x-index>
