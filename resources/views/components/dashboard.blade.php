@@ -82,6 +82,14 @@
                 </div>
             </div>
 
+            <!-- Sales Trends Chart -->
+            <div class="bg-white p-6 rounded-xl shadow col-span-8 row-span-2">
+                <div class="flex justify-between items-center mb-6">
+                    <x-forms.heading>Sales Trends</x-forms.heading>
+                </div>
+                <canvas id="salesChart" height="250"></canvas>
+            </div>
+
         </div>
 
     </div>
