@@ -35,12 +35,14 @@ class OrderItemsController extends Controller
 
         $todayStats = $this->dashboardStatsService->getTodayStats();
         $yesterdayStats = $this->dashboardStatsService->getYesterdayStats();
+        $RevenueDifferencePercentage = $this->dashboardStatsService->getRevenueDifferencePercentage();
 
         return view('order.index', 
                 compact(
                     'orders',
                     'todayStats',
-                    'yesterdayStats'
+                    'yesterdayStats',
+                    'RevenueDifferencePercentage'
                 ));
     }
 }
