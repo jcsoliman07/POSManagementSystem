@@ -34,7 +34,13 @@ class OrderItemsController extends Controller
         // return response()->json($orders);
 
         $todayStats = $this->dashboardStatsService->getTodayStats();
+        $yesterdayStats = $this->dashboardStatsService->getYesterdayStats();
 
-        return view('order.index', compact('orders', 'todayStats'));
+        return view('order.index', 
+                compact(
+                    'orders',
+                    'todayStats',
+                    'yesterdayStats'
+                ));
     }
 }
