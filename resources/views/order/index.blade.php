@@ -107,7 +107,7 @@
 
                         <!-- Filter & Reset Buttons -->
                         <div class="flex items-end gap-3">
-                            <button title="Reset Filter"
+                            <button title="Reset Filter" onclick="filterOrderData('clear')"
                                 class="flex items-center justify-center w-10 h-10 rounded-xl bg-yellow-100 text-yellow-500 hover:bg-yellow-200 transition">
                                 <i class="fa-solid fa-arrow-rotate-left"></i>
                             </button>
