@@ -64,7 +64,11 @@
                                 <i class="fas fa-boxes text-xl"></i>
                             </div>
                         </div>
-                        <p class="mt-2 text-sm text-gray-500">+18 from yesterday</p>
+                        <p class="mt-2 text-sm text-gray-500
+                            {{ $OrderItemDifferencePercentage >= 50 ? 'text-green-500' : ($OrderItemDifferencePercentage >= 0 ? 'texy-yellow-500' : 'text-red-500') }}
+                        ">
+                            {{ $OrderItemDifferencePercentage >= 0 ? '+' : '' }}{{$OrderItemDifferencePercentage}}% from yesterday
+                        </p>
                     </div>
                 </div>
 
