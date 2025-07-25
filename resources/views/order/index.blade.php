@@ -47,7 +47,11 @@
                                 <i class="fas fa-shopping-cart text-xl"></i>
                             </div>
                         </div>
-                        <p class="mt-2 text-sm text-gray-500">+5 from yesterday</p>
+                        <p class="mt-2 text-sm text-gray-500
+                            {{ $OrderDifferencePercentage >= 50 ? 'text-green-500' : ($OrderDifferencePercentage >= 0 ? 'texy-yellow-500' : 'text-red-500') }}
+                        ">
+                            {{ $OrderDifferencePercentage >= 0 ? '+' : '' }}{{$OrderDifferencePercentage}}% from yesterday
+                        </p>
                     </div>
                     <!-- Today's Order Items Card -->
                     <div class="bg-white rounded-lg shadow p-6 hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition duration-300">
