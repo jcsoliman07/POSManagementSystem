@@ -30,7 +30,11 @@
                                 <i class="fas fa-dollar-sign text-xl"></i>
                             </div>
                         </div>
-                        <p class="mt-2 text-sm text-gray-500">+12% from yesterday</p>
+                        <p class="mt-2 text-sm text-gray-500
+                                {{ $RevenueDifferencePercentage >= 50 ? 'text-green-500' : ($RevenueDifferencePercentage >= 0 ? 'texy-yellow-500' : 'text-red-500') }}
+                        ">
+                            {{ $RevenueDifferencePercentage >= 0 ? '+' : '' }}{{$RevenueDifferencePercentage}}% from yesterday
+                        </p>
                     </div>
                     <!-- Today's Orders Card -->
                     <div class="bg-white rounded-lg shadow p-6 hover:-translate-y-1 hover:scale-105 hover:shadow-lg transition duration-300">
