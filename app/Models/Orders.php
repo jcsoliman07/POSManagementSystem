@@ -14,7 +14,7 @@ class Orders extends Model
     //
     use HasFactory;
     
-    protected $fillable = ['user_id', 'total_amount',];
+    protected $fillable = ['user_id', 'total_amount', 'payment_method'];
 
     //Formatted Order Number
     protected static function booted()
