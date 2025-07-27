@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 label: 'Order This Week',
                 data: orderCounts,
                 borderColor: 'yellow',
-                backgroundColor: 'rgba(255, 255, 255, 1)',
+                backgroundColor: 'rgba(255, 251, 232, 1)',
                 fill:true,
                 tension:0.3
             }]
