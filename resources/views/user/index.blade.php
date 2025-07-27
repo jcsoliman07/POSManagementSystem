@@ -163,12 +163,12 @@
 
                     <div class="flex">
                         <div class="payment-option flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-l-lg"
-                            onclick="togglePayment()"
+                            onclick="togglePayment(this)"
                         >
                             Cash
                         </div>
-                        <div class=" payment-option flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-r-lg"
-                            onclick="togglePayment()"
+                        <div class="payment-option flex-1 py-2 text-center border-t border-b border-r cursor-pointer bg-white text-gray-700 border-gray-300 rounded-r-lg"
+                            onclick="togglePayment(this)"
                         >
                             E-Money
                         </div>

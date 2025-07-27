@@ -132,3 +132,18 @@ document.getElementById('review-order-btn').addEventListener('click', function (
 document.getElementById('cancelReviewBtn').addEventListener('click', function () {
     document.getElementById('review-modal').classList.add('hidden');
 });
+
+//Payment Method Toggle active
+function togglePayment(option){
+    const paymentOptions = document.querySelectorAll('.payment-option');
+    
+    paymentOptions.forEach(opt => {
+        if (opt === option) {
+            opt.classList.add('bg-green-500', 'text-white', 'border-green-500');
+            opt.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
+        }else{
+            opt.classList.remove('bg-green-500', 'text-white', 'border-green-500');
+            opt.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
+        }
+    });
+}
