@@ -109,7 +109,7 @@ document.getElementById('review-order-btn').addEventListener('click', function (
         total += itemTotal;
 
         const itemElement = document.createElement('div');
-        itemElement.className = 'flex py-4 border-b';
+        itemElement.className = 'flex py-4';
         itemElement.innerHTML = `
             <span class="hidden"> ${item.id}</span>
             <span class="flex-1">${item.name}</span>
@@ -117,26 +117,7 @@ document.getElementById('review-order-btn').addEventListener('click', function (
             <span class="flex-1 text-right">₱${itemTotal.toFixed(2)}</span>
         `;
 
-        //Container for Payment Method
-        const paymentMethodContainer = document.createElement('div');
-        paymentMethodContainer.className = 'flex';
-
-        //Payment Method Option - Cash
-        const cashOption = document.createElement('div');
-        cashOption.className = 'flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-l-lg'
-        cashOption.innerText = 'Cash';
-
-        //Payment Method Option
-        const emoneyOption = document.createElement('div');
-        emoneyOption.className = 'flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-r-lg'
-        emoneyOption.innerText = 'E-money';
-
-        //Append options to payment Method
-        paymentMethodContainer.appendChild(cashOption);
-        paymentMethodContainer.appendChild(emoneyOption);
-
         reviewContainer.appendChild(itemElement); //Append the order items
-        reviewContainer.appendChild(paymentMethodContainer); //Append the payment method container
 
         orderData.push({ product_id: item.id, quantity: item.quantity, subtotal: itemTotal });
     });

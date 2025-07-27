@@ -161,7 +161,16 @@
                     </div>
                     <input type="hidden" name="orderData" id="orderDataInput">
 
-                    <div class="border-t border-gray-200 pt-4">
+                    <div class="flex">
+                        <div class="flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-l-lg">
+                            Cash
+                        </div>
+                        <div class="flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-r-lg">
+                            E-Money
+                        </div>
+                    </div>
+
+                    <div class="pt-8">
                         <div class="flex justify-between font-bold text-lg text-red-600">
                             <span>Total:</span>
                             <span id="reviewTotal">₱0.00</span>
