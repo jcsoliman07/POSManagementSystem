@@ -83,11 +83,17 @@
             </div>
 
             <!-- Sales Trends Chart -->
-            <div class="bg-white p-6 rounded-xl shadow col-span-8 row-span-2">
+            <div class="bg-white p-6 rounded-xl shadow-md col-span-8 row-span-2">
                 <div class="flex justify-between items-center mb-6">
                     <x-forms.heading>Sales Trends</x-forms.heading>
                 </div>
                 <canvas id="salesChart" class="max-h-2xl"></canvas>
+            </div>
+
+            <!-- Payment Methods Breakdown -->
+            <div class="bg-white p-6 rounded-xl shadow col-span-4">
+                <h2 class="text-lg font-semibold text-gray-800 mb-6">Payment Methods</h2>
+                <canvas id="paymentChart" height="230"></canvas>
             </div>
 
         </div>
