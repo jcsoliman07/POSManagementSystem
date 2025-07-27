@@ -27,10 +27,14 @@ class OrderServiceController extends Controller
         //Validate Data
         $request->validate([
             'orderData' => 'required|json',
+            'paymentMethod' => 'required',
+            'customerName'  => 'required',
         ]);
 
         //Decoding the json data
         $orderData = json_decode($request->orderData, true);
+        $paymentMethod = $request->paymentMethod;
+        $customer = $request->customerName;
 
         $totalAmount = array_reduce($orderData, function ($carry, $item){
             return $carry + $item['subtotal'];
@@ -44,6 +48,8 @@ class OrderServiceController extends Controller
         //Create and Store Data to Order Table
         $order = Orders::create([
             'user_id' => Auth::id(), //Use the Authenticated Login User ID
+            'customer' => $customer,
+            'payment_method' => $paymentMethod,
         ]);
 
         $totalAmount = 0; //Preparing Total Amount of Order
@@ -53,6 +59,7 @@ class OrderServiceController extends Controller
             
             // dd([
             //         'orderData' => $orderData, //Fetch data for each item
+            //         'paymentMethod' => $paymentMethod,
             //         'totalAmount' =>$totalAmount, //Total Amount of price for all item
             // ]);
 
