@@ -21,6 +21,7 @@ class OrdersFactory extends Factory
             //fn($q) => $q->where('name', 'user')) limits its to  users whose role name is exactly 'user'
             'user_id'           => User::whereHas('role', fn($q) => $q->where('name', 'user'))->inRandomOrder()->first()?->id,
             'customer'          =>fake()->name,
+            'payment_method'    => fake()->randomElement(['C', 'E']), //C = Cash, E = E-Money
             'total_amount'      => 0,
         ];
     }
