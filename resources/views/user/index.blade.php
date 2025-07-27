@@ -164,7 +164,7 @@
                     </div>
                     <input type="hidden" name="orderData" id="orderDataInput">
 
-                    <div class="flex">
+                    <div class="flex pt-6 border-t border-gray-300">
                         <div class="payment-option flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-l-lg"
                             onclick="togglePayment(this)"
                         >
@@ -177,7 +177,7 @@
                         </div>
                     </div>
 
-                    <div class="pt-8">
+                    <div class="pt-2">
                         <div class="flex justify-between font-bold text-lg text-red-600">
                             <span>Total:</span>
                             <span id="reviewTotal">₱0.00</span>
