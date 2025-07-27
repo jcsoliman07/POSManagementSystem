@@ -162,10 +162,14 @@
                     <input type="hidden" name="orderData" id="orderDataInput">
 
                     <div class="flex">
-                        <div class="flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-l-lg">
+                        <div class="payment-option flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-l-lg"
+                            onclick="togglePayment()"
+                        >
                             Cash
                         </div>
-                        <div class="flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-r-lg">
+                        <div class=" payment-option flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-r-lg"
+                            onclick="togglePayment()"
+                        >
                             E-Money
                         </div>
                     </div>
