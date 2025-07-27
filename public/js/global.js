@@ -16,3 +16,33 @@ tailwind.config = {
     }
 }
 
+// Product Category Button
+document.addEventListener('DOMContentLoaded', function () {
+    // Product Category Button
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            // Remove active state from all buttons
+            document.querySelectorAll('.category-btn').forEach(b => {
+                b.classList.remove('bg-custom-yellow', 'text-white');
+            });
+
+            // Add active state to the clicked button
+            this.classList.add('bg-custom-yellow', 'text-white');
+
+            // Get clicked category
+            const selectedCategory = this.getAttribute('data-category');
+
+            // Loop through all product cards
+            document.querySelectorAll('.product-card').forEach(card => {
+                const productCategory = card.getAttribute('data-category');
+
+                // Show or hide product based on match
+                if (selectedCategory === 'all' || selectedCategory === productCategory) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
