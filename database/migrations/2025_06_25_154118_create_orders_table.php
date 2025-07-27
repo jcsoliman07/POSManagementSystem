@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('order_number')->unique()->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('customer')->nullable();
+            $table->string('payment_method');
             $table->decimal('total_amount', 10, 2)->default(0.00);
             // $table->string('status')->default('pending');
             $table->timestamps();
