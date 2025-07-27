@@ -139,10 +139,10 @@ function togglePayment(option){
     
     paymentOptions.forEach(opt => {
         if (opt === option) {
-            opt.classList.add('bg-green-500', 'text-white', 'border-green-500');
+            opt.classList.add('bg-green-500', 'text-white', 'font-medium', 'border-green-500', 'transition', '-translate-y-1', 'shadow', 'duration-300', 'ease-out');
             opt.classList.remove('bg-white', 'text-gray-700', 'border-gray-300');
         }else{
-            opt.classList.remove('bg-green-500', 'text-white', 'border-green-500');
+            opt.classList.remove('bg-green-500', 'text-white', 'font-medium', 'border-green-500', 'transition', '-translate-y-1', 'shadow', 'duration-300', 'ease-out');
             opt.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
         }
     });
