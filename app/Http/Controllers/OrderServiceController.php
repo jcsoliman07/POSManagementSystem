@@ -56,12 +56,6 @@ class OrderServiceController extends Controller
 
         //Create and Store Data for Order Items
         foreach ($orderData as $item) {
-            
-            // dd([
-            //         'orderData' => $orderData, //Fetch data for each item
-            //         'paymentMethod' => $paymentMethod,
-            //         'totalAmount' =>$totalAmount, //Total Amount of price for all item
-            // ]);
 
             OrderItems::create([
                 'order_id' => $order->id,
@@ -71,7 +65,6 @@ class OrderServiceController extends Controller
             ]);
 
             $totalAmount += $item['subtotal']; //Get the sum price of product in order
-
         }
 
         $order->update([
