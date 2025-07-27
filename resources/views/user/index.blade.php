@@ -150,7 +150,10 @@
             <div class="px-6 py-8 space-y-4">
 
                 <!--Review Items-->
-                <h2 class="text-xl font-bold">Review Order</h2>
+                <div class="border-b border-gray-300">
+                    <h2 class="text-xl font-bold mb-4">Review Order</h2>
+                </div>
+                
 
                 <x-forms.form action="{{ route('orders.store') }}" method="POST">
                     @csrf
