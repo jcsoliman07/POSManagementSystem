@@ -123,7 +123,8 @@ document.getElementById('review-order-btn').addEventListener('click', function (
     });
 
     reviewTotal.textContent = `₱${total.toFixed(2)}`;
-    orderDataInput.value = JSON.stringify(orderData);
+
+    orderDataInput.value = JSON.stringify(orderData); //Order items only
 
     document.getElementById('review-modal').classList.remove('hidden');
 });
@@ -136,7 +137,18 @@ document.getElementById('cancelReviewBtn').addEventListener('click', function ()
 //Payment Method Toggle active
 function togglePayment(option){
     const paymentOptions = document.querySelectorAll('.payment-option');
-    
+
+    //Store selected value
+    const selectedMethod = option.getAttribute('data-value');
+    // Store the value of selected payment method data-value
+    const paymentMethodInput = document.getElementById('paymentMethodInput');
+
+    if (selectedMethod === 'cashOption') {
+        paymentMethodInput.value = 'C';
+    }else if (selectedMethod === 'emoneyOption'){
+        paymentMethodInput.value = 'E';
+    }
+
     paymentOptions.forEach(opt => {
         if (opt === option) {
             opt.classList.add('bg-green-500', 'text-white', 'font-medium', 'border-green-500', 'transition', '-translate-y-1', 'shadow', 'duration-300', 'ease-out');
