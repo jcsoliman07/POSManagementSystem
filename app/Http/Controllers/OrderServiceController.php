@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreOrderRequest;
 use App\Models\Category;
 use App\Models\OrderItems;
 use App\Models\Orders;
@@ -22,19 +23,10 @@ class OrderServiceController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(StoreOrderRequest $request)
     {
-        //Validate Data
-        $request->validate([
-            'orderData' => 'required|json',
-            'paymentMethod' => 'required',
-            'customerName'  => 'required',
-        ]);
 
-        //Decoding the json data
         $orderData = json_decode($request->orderData, true);
-        $paymentMethod = $request->paymentMethod;
-        $customer = $request->customerName;
 
         $totalAmount = array_reduce($orderData, function ($carry, $item){
             return $carry + $item['subtotal'];
