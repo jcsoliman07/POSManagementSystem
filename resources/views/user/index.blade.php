@@ -147,7 +147,7 @@
     <div id="review-modal" class="fixed inset-0 bg-custom-gray bg-opacity-50 flex items-center justify-center z-50 hidden">
         
         <div class="bg-white rounded-lg shadow-xl w-full max-w-md">
-            <div class="px-6 py-8 space-y-4">
+            <div class="px-8 py-8 space-y-4">
 
                 <!--Review Items-->
                 <div class="border-b border-gray-300">
@@ -164,17 +164,35 @@
                     </div>
                     <input type="hidden" name="orderData" id="orderDataInput">
 
+                    <input type="hidden" name="paymentMethod" id="paymentMethodInput">
+
                     <div class="flex pt-6 border-t border-gray-300">
-                        <div class="payment-option flex-1 py-2 text-center border cursor-pointer bg-green-500 text-white border-green-500 rounded-l-lg"
+                        <div data-value="cashOption"
+                            class="payment-option flex-1 py-2 text-center border-t border-b border-r cursor-pointer bg-white text-gray-700 border-gray-300 rounded-l-lg"
                             onclick="togglePayment(this)"
                         >
                             Cash
                         </div>
-                        <div class="payment-option flex-1 py-2 text-center border-t border-b border-r cursor-pointer bg-white text-gray-700 border-gray-300 rounded-r-lg"
+                        <div data-value="emoneyOption"
+                            class="payment-option flex-1 py-2 text-center border-t border-b border-r cursor-pointer bg-white text-gray-700 border-gray-300 rounded-r-lg"
                             onclick="togglePayment(this)"
                         >
                             E-Money
                         </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="customerName" class="block text-gray-700 font-semibold mb-1">Customer</label>
+                        <input 
+                            type="text" 
+                            id="customerName" 
+                            name="customerName" 
+                            placeholder="Enter customer name" 
+                            class="w-full border border-gray-300 rounded-md p-2 text-gray-700 placeholder-gray-400 transition-shadow focus:ring-2 focus:ring-green-400"
+                            aria-label="Customer Name"
+                            autocomplete="off"
+                            value="{{ old('customerName') }}"
+                        />
                     </div>
 
                     <div class="pt-2">
@@ -205,9 +223,8 @@
                             Confirm Order 
 
                         </button>
-
-                    </x-forms.form>
-                </div>
+                     </div>
+                </x-forms.form>
             </div>
         </div>
     </div>
