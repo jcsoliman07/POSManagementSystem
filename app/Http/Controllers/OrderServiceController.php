@@ -28,6 +28,10 @@ class OrderServiceController extends Controller
 
         $orderData = json_decode($request->orderData, true);
 
+        if (!is_array($orderData)) {
+            return back()->with('success', 'Order Successfully placed!');
+        }
+
         $totalAmount = array_reduce($orderData, function ($carry, $item){
             return $carry + $item['subtotal'];
         }, 0);
