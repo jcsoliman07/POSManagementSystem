@@ -153,4 +153,11 @@ class DashboardStatsService{
     {
         return $this->getSalesChart(); //Calling getSalesChart Method
     }
+
+
+    //Payment Method
+    protected function getPaymentMethod()
+    {
+        
+    }
 }
