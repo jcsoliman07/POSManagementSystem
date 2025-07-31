@@ -158,13 +158,12 @@
                 <x-forms.form action="{{ route('orders.store') }}" method="POST">
                     @csrf
 
-                    
                     <div id="review-items">
                         <!--Items will be automatically added -->
                     </div>
-                    <input type="hidden" name="orderData" id="orderDataInput">
+                    <input type="hidden" name="orderData" id="orderDataInput" value="{{ old('orderData') }}">
 
-                    <input type="hidden" name="paymentMethod" id="paymentMethodInput">
+                    <input type="hidden" name="paymentMethod" id="paymentMethodInput" value="{{ old('paymentMethod') }}">
 
                     <div class="flex pt-6 border-t border-gray-300">
                         <div data-value="cashOption"
