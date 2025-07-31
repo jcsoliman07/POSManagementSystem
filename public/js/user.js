@@ -94,6 +94,36 @@ document.getElementById('clear-order-btn').addEventListener('click', function ()
     updateOrderList();
 });
 
+
+//Function to update Confirm Button if Payment Method and Customer name is not Empty
+const paymentMethodInput = document.getElementById('paymentMethodInput');
+const customerName = document.getElementById('customerName');
+const confirmBtn = document.getElementById('confirm-order-btn');
+
+function updateConfirmBtn(){
+    const paymentMethodInputValue = paymentMethodInput.value.trim();
+    const customerNameValue = customerName.value.trim();
+
+    const btnDisable = (paymentMethodInputValue === '' || customerNameValue === '');
+
+    confirmBtn.disabled = btnDisable;
+
+    if (btnDisable) {
+
+        confirmBtn.classList.remove('bg-custom-yellow', 'hover:bg-custom-yellow-dark', 'focus:ring-custom-yellow-dark');
+        confirmBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+
+    }else{
+        confirmBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
+        confirmBtn.classList.add('bg-custom-yellow', 'hover:bg-custom-yellow-dark', 'focus:ring-custom-yellow-dark');
+    }
+
+}
+
+paymentMethodInput.addEventListener('input', updateConfirmBtn);
+customerName.addEventListener('input', updateConfirmBtn);
+
+
 //Review Modal
 document.getElementById('review-order-btn').addEventListener('click', function () {
     const reviewContainer = document.getElementById('review-items');
@@ -158,4 +188,8 @@ function togglePayment(option){
             opt.classList.add('bg-white', 'text-gray-700', 'border-gray-300');
         }
     });
+
+    updateConfirmBtn();
 }
+
+updateConfirmBtn();
