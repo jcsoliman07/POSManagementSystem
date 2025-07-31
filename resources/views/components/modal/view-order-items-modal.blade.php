@@ -41,7 +41,9 @@
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <h4 class="text-sm font-medium text-gray-500">Payment Method:</h4>
-                        <p class="text-green-800 font-medium">Cash</p>
+                        <p class="text-green-800 font-medium">
+                            {{ $order->payment_method == 'C' ? 'Cash' :  'E-Money' }}
+                        </p>
                     </div>
                 </div>
 
