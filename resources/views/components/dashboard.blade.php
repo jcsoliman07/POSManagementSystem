@@ -102,5 +102,6 @@
 
 <script>
     window.weekSalesChart = @json($weekSalesChart);
+    window.paymentChart = @json($paymentChart);
 </script>
 </x-index>
