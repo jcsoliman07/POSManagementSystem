@@ -145,3 +145,48 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
 });
+
+
+//Doughnut Chart for Payment Method
+document.addEventListener('DOMContentLoaded', function(){
+
+    const chartData = window.paymentChart;
+
+    const paymentMethodChart = document.getElementById('paymentChart').getContext('2d');
+    new Chart(paymentMethodChart,{
+        type: 'doughnut',
+        data:{
+            labels: chartData.labels,
+            datasets:[{
+                label: 'Payment Method',
+                data: chartData.data,
+                backgroundColor: [
+                    '#FF6B45',
+                    '#FFAB05',
+                ],
+                borderWidth: 0,
+                hoverOffset: 8,
+            }]
+        },
+
+        options:{
+            responsive: true,
+            cutout: '70%',
+            plugins:{
+                legend:{
+                    position: 'bottom',
+                    labels:{
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        boxWidth: 6,
+                        boxHeight: 6,
+                        padding: 20,
+                    }
+                }
+            }
+        }
+    });
+
+
+})
+
