@@ -160,6 +160,7 @@ class DashboardStatsService{
     {
         $paymentMethod = DB::table('orders')
                             ->select('payment_method', DB::raw('COUNT(*) as countPaymentMethod'))
+                            ->groupBy('payment_method')
                             ->pluck('countPaymentMethod', 'payment_method');
         $paymentChart = [
             'labels'    =>      $paymentMethod->keys(),
