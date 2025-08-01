@@ -169,4 +169,9 @@ class DashboardStatsService{
         return $paymentChart;
 
     }
+
+    public function getPaymentMethodChart()
+    {
+        return $this->getPaymentMethod();
+    }
 }
