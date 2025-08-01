@@ -158,6 +158,8 @@ class DashboardStatsService{
     //Payment Method
     protected function getPaymentMethod()
     {
-        
+        $paymentMethod = DB::table('orders')
+                            ->select('payment_method', DB::raw('COUNT(*) as countPaymentMethod'))
+                            ->pluck('countPaymentMethod', 'payment_method');
     }
 }
