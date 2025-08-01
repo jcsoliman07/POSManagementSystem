@@ -162,8 +162,18 @@ class DashboardStatsService{
                             ->select('payment_method', DB::raw('COUNT(*) as countPaymentMethod'))
                             ->groupBy('payment_method')
                             ->pluck('countPaymentMethod', 'payment_method');
+        
+        $paymentName  = [
+            'C' => 'Cash',
+            'E' => 'E-Money',
+        ];
+
+        $labels = $paymentMethod->keys()->map(function($key) use ($paymentName){
+            return $paymentName[$key] ?? $key;
+        });
+        
         $paymentChart = [
-            'labels'    =>      $paymentMethod->keys(),
+            'labels'    =>      $labels,
             'data'      =>      $paymentMethod->values(),
         ];
 
