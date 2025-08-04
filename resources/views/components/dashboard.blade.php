@@ -100,12 +100,23 @@
             <div class="bg-white p-6 rounded-xl shadow col-span-4">
                 <h2 class="text-lg font-semibold text-gray-800 mb-6">Top Selling Products</h2>
 
-                <div class="space-y-4">
+                <div class="space-y-2">
 
-                    <div class="flex items-center">
+                    @foreach ($TopSelling as $item)
+                        <div class="flex items-center rounded-lg hover:-translate-y-1 hover:shadow-md p-4 transition duration-300 ease-out">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0ccf4480-0602-495d-a9c5-2bec980bb886.png" alt="{{ $item->product }}" class="w-10 h-10 rounded-md object-cover mr-3">
 
-                    </div>
+                            <div class="flex-1">
+                                <p class="font-medium">{{$item->product}}</p>
+                            </div>
 
+                            <div class="text-center">   
+                                <p class="font-bold text-800 text-lg text-green-500">{{$item->total_product_quantity}} </p>
+                                <p class="text-gray-500 text-sm">total sold</p>
+                            </div>
+                        </div>
+                    @endforeach
+                
                 </div>
             </div>
 
