@@ -185,4 +185,25 @@ class DashboardStatsService{
     {
         return $this->getPaymentMethod();
     }
+
+
+    //All Time Top Products
+    protected function getTopSellingProducts()
+    {
+
+        $itemsStats = DB::table('order_items')
+                ->join('products', 'order_items.product_id', '=', 'products.id')
+                ->selectRaw('products.name as product, SUM(order_items.quantity) as total_product_quantity')
+                ->groupBy('products.id', 'products.name')
+                ->orderByDesc('total_product_quantity');
+
+        return $itemsStats;
+    }
+
+    public function getTopFivesellingProducts()
+    {
+        return $this->getTopSellingProducts()
+                ->limit(5)
+                ->get();
+    }
 }
