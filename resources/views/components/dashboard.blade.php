@@ -96,6 +96,19 @@
                 <canvas id="paymentChart" height="230"></canvas>
             </div>
 
+            <!-- Top Selling Products -->
+            <div class="bg-white p-6 rounded-xl shadow col-span-4">
+                <h2 class="text-lg font-semibold text-gray-800 mb-6">Top Selling Products</h2>
+
+                <div class="space-y-4">
+
+                    <div class="flex items-center">
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
     </div>
