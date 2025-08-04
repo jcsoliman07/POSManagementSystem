@@ -59,9 +59,9 @@
                         <p class="text-gray-500 text-sm mb-1">Total Items</p>
                         <h3 class="text-2xl font-bold">{{ $todayStats->total_items_sold ?? 0 }}</h3>
                         <p class="text-sm mt-1
-                            {{ $OrderItemDiferencePercentage >= 50 ? 'text-green-500' : ($OrderItemDiferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500')}}"
+                            {{ $OrderItemDifferencePercentage >= 50 ? 'text-green-500' : ($OrderItemDifferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500')}}"
                         >
-                            {{ $OrderItemDiferencePercentage >= 0 ? '+' : ' ' }} {{ $OrderItemDiferencePercentage }}% from yesterday
+                            {{ $OrderItemDifferencePercentage >= 0 ? '+' : ' ' }} {{ $OrderItemDifferencePercentage }}% from yesterday
                         </p>
                     </div>
                 </div>
@@ -76,8 +76,8 @@
                         <p class="text-gray-500 text-sm mb-1">Customers for Today</p>
                         <h3 class="text-2xl font-bold">{{ $todayStats->customer_count ?? 0 }}</h3>
                         <p class="text-sm mt-1
-                            {{ $CustomerDiferencePercentage >= 50 ? 'text-green-500' : ($CustomerDiferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500')}}"
-                        >{{ $CustomerDiferencePercentage >= 0 ? '+' : '' }} {{ $CustomerDiferencePercentage }}% from yesterday</p>
+                            {{ $CustomerDifferencePercentage >= 50 ? 'text-green-500' : ($CustomerDifferencePercentage >= 0 ? 'text-yellow-500' : 'text-red-500')}}"
+                        >{{ $CustomerDifferencePercentage >= 0 ? '+' : '' }} {{ $CustomerDifferencePercentage }}% from yesterday</p>
                     </div>
                 </div>
             </div>
