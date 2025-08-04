@@ -103,7 +103,7 @@
                 <div class="space-y-2">
 
                     @foreach ($TopSelling as $item)
-                        <div class="flex items-center rounded-lg hover:-translate-y-1 hover:shadow-md p-4 transition duration-300 ease-out">
+                        <div class="flex items-center rounded-lg hover:-translate-y-1 hover:scale-105 hover:shadow-md p-4 transition duration-300 ease-out">
                             <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0ccf4480-0602-495d-a9c5-2bec980bb886.png" alt="{{ $item->product }}" class="w-10 h-10 rounded-md object-cover mr-3">
 
                             <div class="flex-1">
