@@ -8,6 +8,22 @@ use Illuminate\Support\Facades\Log;
 
 class DashboardStatsService{
 
+    public function getDashboardData()
+    {
+        return[
+            'todayStats'                       =>  $this->getTodayStats(),
+            'yesterdayStats'                   =>  $this->getYesterdayStats(),
+            'RevenueDifferencePercentage'      =>  $this->getRevenueDifferencePercentage(),
+            'OrderDifferencePercentage'        =>  $this->getOrderDifferencePercentage(),
+            'OrderItemDifferencePercentage'    =>  $this->getOrderItemDiferencePercentage(),
+            'CustomerDifferencePercentage'     =>  $this->getCustomerDiferencePercentage(),
+            'weekSalesChart'                   =>  $this->getWeeklySalesChart(),
+            'paymentChart'                     =>  $this->getPaymentMethodChart(),
+            'TopSelling'                       =>  $this->getTopFivesellingProducts(),
+        ];
+    }
+
+
     protected function getStatsBetween($startDate, $endDate)
     {   
         //Split the Query to avoid Duplication
