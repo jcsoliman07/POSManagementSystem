@@ -28,28 +28,12 @@ class DashBoardController extends Controller
         //         ->whereDate('created_at', today()) //Filter using date today
         //         ->first();s
 
-        $todayStats = $this->dashboardStatsService->getTodayStats();
-        $yesterdatStats = $this->dashboardStatsService->getYesterdayStats();
-        $RevenueDifferencePercentage = $this->dashboardStatsService->getRevenueDifferencePercentage();
-        $OrderDifferencePercentage = $this->dashboardStatsService->getOrderDifferencePercentage();
-        $OrderItemDiferencePercentage = $this->dashboardStatsService->getOrderItemDiferencePercentage();
-        $CustomerDiferencePercentage = $this->dashboardStatsService->getCustomerDiferencePercentage();
-        $weekSalesChart = $this->dashboardStatsService->getWeeklySalesChart();
-        $paymentChart = $this->dashboardStatsService->getPaymentMethodChart();
-        $TopSelling = $this->dashboardStatsService->getTopFivesellingProducts();
+        $DashBoardData = $this->dashboardStatsService->getDashBoardData();
         
         return view('components.dashboard',
                 compact(
                     'user',
-                    'todayStats',
-                    'yesterdatStats',
-                    'RevenueDifferencePercentage',
-                    'OrderDifferencePercentage',
-                    'OrderItemDiferencePercentage',
-                    'CustomerDiferencePercentage',
-                    'weekSalesChart',
-                    'paymentChart',
-                    'TopSelling'
+                    'DashBoardData',
                 ));
     }
 }
