@@ -36,6 +36,7 @@ class DashBoardController extends Controller
         $CustomerDiferencePercentage = $this->dashboardStatsService->getCustomerDiferencePercentage();
         $weekSalesChart = $this->dashboardStatsService->getWeeklySalesChart();
         $paymentChart = $this->dashboardStatsService->getPaymentMethodChart();
+        $TopSelling = $this->dashboardStatsService->getTopFivesellingProducts();
         
         return view('components.dashboard',
                 compact(
@@ -47,7 +48,8 @@ class DashBoardController extends Controller
                     'OrderItemDiferencePercentage',
                     'CustomerDiferencePercentage',
                     'weekSalesChart',
-                    'paymentChart'
+                    'paymentChart',
+                    'TopSelling'
                 ));
     }
 }
