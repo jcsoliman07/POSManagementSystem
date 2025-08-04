@@ -31,9 +31,9 @@ class DashBoardController extends Controller
         $DashBoardData = $this->dashboardStatsService->getDashBoardData();
         
         return view('components.dashboard',
-                compact(
-                    'user',
-                    'DashBoardData',
+                array_merge(
+                    ['user' => $user],
+                    $DashBoardData,
                 ));
     }
 }
