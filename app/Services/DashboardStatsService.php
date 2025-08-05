@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\OrderItems;
+use App\Models\Orders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
@@ -227,6 +229,13 @@ class DashboardStatsService{
     //Recent Transactions
     public function getRecentTransactions()
     {
-        
+        $orders = Orders::with([
+                'user:id,name',
+                'items:id,order_id,product_id,quantity',
+                'items.product:id,category_id,name,price',
+                'items.product.category:id,name'
+        ]);
+
+        return $orders;
     }
 }
