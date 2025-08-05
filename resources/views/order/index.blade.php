@@ -175,7 +175,7 @@
                             </thead>
 
                             <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($orders as $order)
+                                @foreach ($OrdersTransaction as $order)
                                         <tr class="hover:bg-gray-100"  data-date="{{ $order->created_at->format('Y-m-d') }}">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-custom-yellow-darker">
                                                 {{ $order->order_number }}
@@ -218,14 +218,14 @@
                             <div>
                                 <p class="text-sm text-gray-700">
                                     Showing 
-                                    <span class="font-medium">{{ $orders->firstItem() }}</span> 
-                                    to <span class="font-medium">{{ $orders->lastItem() }}</span> 
-                                    of <span class="font-medium">{{ $orders->total() }}</span> 
+                                    <span class="font-medium">{{ $OrdersTransaction->firstItem() }}</span> 
+                                    to <span class="font-medium">{{ $OrdersTransaction->lastItem() }}</span> 
+                                    of <span class="font-medium">{{ $OrdersTransaction->total() }}</span> 
                                     orders
                                 </p>
                             </div>
                             <div>
-                                {{ $orders->links('pagination::tailwind') }}
+                                {{ $OrdersTransaction->links('pagination::tailwind') }}
                             </div>
                         </div>
                     </div>
