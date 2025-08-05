@@ -33,20 +33,12 @@ class OrderItemsController extends Controller
         
         // return response()->json($orders);
 
-        $todayStats = $this->dashboardStatsService->getTodayStats();
-        $yesterdayStats = $this->dashboardStatsService->getYesterdayStats();
-        $RevenueDifferencePercentage = $this->dashboardStatsService->getRevenueDifferencePercentage();
-        $OrderDifferencePercentage = $this->dashboardStatsService->getOrderDifferencePercentage();
-        $OrderItemDifferencePercentage = $this->dashboardStatsService->getOrderItemDiferencePercentage();
+        $DashboardData = $this->dashboardStatsService->getDashboardData();
 
         return view('order.index', 
-                compact(
-                    'orders',
-                    'todayStats',
-                    'yesterdayStats',
-                    'RevenueDifferencePercentage',
-                    'OrderDifferencePercentage',
-                    'OrderItemDifferencePercentage'
+                array_merge(
+                    ['orders' => $orders],
+                    $DashboardData
                 ));
     }
 }
