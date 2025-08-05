@@ -22,6 +22,7 @@ class DashboardStatsService{
             'weekSalesChart'                   =>  $this->getWeeklySalesChart(),
             'paymentChart'                     =>  $this->getPaymentMethodChart(),
             'TopSelling'                       =>  $this->getTopFivesellingProducts(),
+            'AllOrdersTransaction'             =>  $this->getAllOrdersTransaction(),
             'RecentOrdersTransaction'          =>  $this->getRecentOrdersTransaction(),
         ];
     }
@@ -240,6 +241,14 @@ class DashboardStatsService{
         return $orders;
     }
 
+    //All Transactions
+    public function getAllOrdersTransaction()
+    {
+        return $this->getOrdersTransaction()
+            ->paginate(10);
+    }
+
+    //Recent Transactions
     public function getRecentOrdersTransaction()
     {
         return $this->getOrdersTransaction()
