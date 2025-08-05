@@ -222,4 +222,11 @@ class DashboardStatsService{
                 ->limit(5)
                 ->get();
     }
+
+
+    //Recent Transactions
+    public function getRecentTransactions()
+    {
+        
+    }
 }
