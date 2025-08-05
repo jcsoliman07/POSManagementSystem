@@ -22,7 +22,7 @@ class DashboardStatsService{
             'weekSalesChart'                   =>  $this->getWeeklySalesChart(),
             'paymentChart'                     =>  $this->getPaymentMethodChart(),
             'TopSelling'                       =>  $this->getTopFivesellingProducts(),
-            'OrdersTransaction'                =>  $this->getOrdersTransaction(),
+            'RecentOrdersTransaction'          =>  $this->getRecentOrdersTransaction(),
         ];
     }
 
