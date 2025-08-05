@@ -27,13 +27,8 @@ class OrderItemsController extends Controller
         $DashboardData = $this->dashboardStatsService->getDashboardData();
 
         return view('order.index', 
-                compact(
-                    'orders',
-                    'todayStats',
-                    'yesterdayStats',
-                    'RevenueDifferencePercentage',
-                    'OrderDifferencePercentage',
-                    'OrderItemDifferencePercentage'
+                array_merge(
+                    $DashboardData,
                 ));
     }
 }
