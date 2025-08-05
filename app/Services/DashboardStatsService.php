@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helpers\DateHelper;
 use App\Models\OrderItems;
 use App\Models\Orders;
 use Illuminate\Support\Facades\DB;
@@ -244,14 +245,28 @@ class DashboardStatsService{
     //All Transactions
     public function getAllOrdersTransaction()
     {
-        return $this->getOrdersTransaction()
+        $orders = $this->getOrdersTransaction()
             ->paginate(10);
+
+        // Format dates
+        foreach ($orders as $order) {
+            $order->formatted_created_at = DateHelper::formatCreatedAt($order->created_at);
+        }
+
+        return $orders;
     }
 
     //Recent Transactions
     public function getRecentOrdersTransaction()
     {
-        return $this->getOrdersTransaction()
+        $orders = $this->getOrdersTransaction()
             ->paginate(5);
+        
+        // Format dates
+        foreach ($orders as $order) {
+            $order->formatted_created_at = DateHelper::formatCreatedAt($order->created_at);
+        }
+
+        return $orders;
     }
 }
