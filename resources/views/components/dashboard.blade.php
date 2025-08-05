@@ -122,7 +122,36 @@
 
             <!--Recent Transactions-->
             <div class="bg-white p-6 rounded-xl shadow-md col-span-8">
+                <h2 class="text-lg font-semibold text-gray-800 mb-6">Recent Transactions</h2>
 
+                <div class="space-y-4">
+                    <div class="grid grid-cols-12 items-center gap-4 bg-white rounded-lg">
+                        <p class="col-span-3 font-medium">#</p>
+                        <p class="col-span-2 font-medium">Date</p>
+                        <p class="col-span-2 font-medium truncate">Staff</p>
+                        <p class="col-span-2 font-medium truncate">Custoner</p>
+                        <p class="col-span-1 font-medium ">Quantity</p>
+                        <p class="col-span-2 font-medium">Amount</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    @foreach ($RecentOrdersTransaction as $order)
+                        <div class="grid grid-cols-12 items-center gap-4 bg-white rounded-lg hover:-translate-y-1 hover:shadow-md p-4 transition duration-300 ease-out">
+                            <p class="col-span-3 text-custom-yellow-darker font-semibold">{{ $order->order_number }}</p>
+                            <p class="col-span-2 font-medium">{{ $order->formatted_created_at }}</p>
+                            <p class="col-span-2 font-medium text-center truncate">{{ $order->user->name }}</p>
+                            <p class="col-span-2 font-medium truncate">{{ $order->customer }}</p>
+                            <p class="col-span-1 font-medium text-center">{{ $order->items->count() }}</p>
+                            <p class="col-span-2 font-medium text-green-500">₱ {{ number_format($order->total_amount, 2, '.', ',') }}</p>
+                        </div>
+                    @endforeach
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-6">
+                    {{ $RecentOrdersTransaction->links('pagination::tailwind') }}
+                </div>
             </div>
 
         </div>
