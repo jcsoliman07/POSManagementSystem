@@ -235,10 +235,14 @@ class DashboardStatsService{
                 'items:id,order_id,product_id,quantity',
                 'items.product:id,category_id,name,price',
                 'items.product.category:id,name'
-        ]);
+        ])->latest();
 
         return $orders;
     }
 
-
+    public function getRecentOrdersTransaction()
+    {
+        return $this->getOrdersTransaction()
+            ->paginate(5);
+    }
 }
