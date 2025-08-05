@@ -26,22 +26,6 @@ class Orders extends Model
         });
     }
     
-    //Formatted Created At
-    public function getFormattedCreatedAtAttribute()
-    {
-        $createdAt = $this->created_at;
-
-        if ($createdAt->isToday()) { //If the date is today or current date
-            return 'Today, ' . $createdAt->format('h:i A');
-        }
-        elseif ($createdAt->isYesterday()){ //If the date is yesterday or previous date
-            return 'Yesterday, ' . $createdAt->format('h:i A');
-        }
-        else{ //If the date is two or more date late
-            return $createdAt->format('M-d-Y, h:i A');
-        }
-    }
-
     public function user():BelongsTo
     {
         return $this->belongsTo(User::class);
