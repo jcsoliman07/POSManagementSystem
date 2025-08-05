@@ -24,11 +24,7 @@ class OrderItemsController extends Controller
     public function index()
     {
 
-        $todayStats = $this->dashboardStatsService->getTodayStats();
-        $yesterdayStats = $this->dashboardStatsService->getYesterdayStats();
-        $RevenueDifferencePercentage = $this->dashboardStatsService->getRevenueDifferencePercentage();
-        $OrderDifferencePercentage = $this->dashboardStatsService->getOrderDifferencePercentage();
-        $OrderItemDifferencePercentage = $this->dashboardStatsService->getOrderItemDiferencePercentage();
+        $DashboardData = $this->dashboardStatsService->getDashboardData();
 
         return view('order.index', 
                 compact(
