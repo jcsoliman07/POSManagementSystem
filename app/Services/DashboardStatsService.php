@@ -227,7 +227,7 @@ class DashboardStatsService{
 
 
     //Recent Transactions
-    public function getRecentTransactions()
+    public function getOrdersTransaction()
     {
         $orders = Orders::with([
                 'user:id,name',
