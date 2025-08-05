@@ -120,6 +120,11 @@
                 <canvas id="paymentChart" height="230"></canvas>
             </div>
 
+            <!--Recent Transactions-->
+            <div class="bg-white p-6 rounded-xl shadow-md col-span-8">
+
+            </div>
+
         </div>
 
     </div>
