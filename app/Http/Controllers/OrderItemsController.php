@@ -23,22 +23,21 @@ class OrderItemsController extends Controller
 
     public function index()
     {
-        $orders = Orders::with([
-                'user:id,name', //The user for each Order
-                'items:id,order_id,product_id,quantity',
-                'items.product:id,category_id,name,price',
-                'items.product.category:id,name' //The items for each order, the product for each item, the category for each product
-            ])
-            ->paginate(10);
-        
-        // return response()->json($orders);
 
-        $DashboardData = $this->dashboardStatsService->getDashboardData();
+        $todayStats = $this->dashboardStatsService->getTodayStats();
+        $yesterdayStats = $this->dashboardStatsService->getYesterdayStats();
+        $RevenueDifferencePercentage = $this->dashboardStatsService->getRevenueDifferencePercentage();
+        $OrderDifferencePercentage = $this->dashboardStatsService->getOrderDifferencePercentage();
+        $OrderItemDifferencePercentage = $this->dashboardStatsService->getOrderItemDiferencePercentage();
 
         return view('order.index', 
-                array_merge(
-                    ['orders' => $orders],
-                    $DashboardData
+                compact(
+                    'orders',
+                    'todayStats',
+                    'yesterdayStats',
+                    'RevenueDifferencePercentage',
+                    'OrderDifferencePercentage',
+                    'OrderItemDifferencePercentage'
                 ));
     }
 }
