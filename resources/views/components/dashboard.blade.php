@@ -129,7 +129,7 @@
                         <p class="col-span-3 font-medium">#</p>
                         <p class="col-span-2 font-medium">Date</p>
                         <p class="col-span-2 font-medium truncate">Staff</p>
-                        <p class="col-span-2 font-medium truncate">Custoner</p>
+                        <p class="col-span-2 font-medium truncate">Customer</p>
                         <p class="col-span-1 font-medium ">Quantity</p>
                         <p class="col-span-2 font-medium">Amount</p>
                     </div>
