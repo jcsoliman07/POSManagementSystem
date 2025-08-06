@@ -121,7 +121,7 @@
             </div>
 
             <!--Recent Transactions-->
-            <div class="bg-white p-6 rounded-xl shadow-md col-span-8">
+            <div class="bg-white p-6 rounded-xl shadow-md col-span-8 space-y-4">
                 <h2 class="text-lg font-semibold text-gray-800 mb-6">Recent Transactions</h2>
 
                 <div class="space-y-4">
