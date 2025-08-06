@@ -92,7 +92,7 @@
 
             <!-- Top Selling Products -->
             <div class="bg-white p-6 rounded-xl shadow col-span-4">
-                <h2 class="text-lg font-semibold text-gray-800 mb-6">Top Selling Products</h2>
+                <x-forms.heading>Top Selling Products</x-forms.heading>
 
                 <div class="space-y-2">
 
@@ -116,13 +116,13 @@
 
             <!-- Payment Methods Breakdown -->
             <div class="bg-white p-6 rounded-xl shadow col-span-4">
-                <h2 class="text-lg font-semibold text-gray-800 mb-6">Payment Methods</h2>
+                <x-forms.heading>Payment Methods</x-forms.heading>
                 <canvas id="paymentChart" height="230"></canvas>
             </div>
 
             <!--Recent Transactions-->
             <div class="bg-white p-6 rounded-xl shadow-md col-span-8 space-y-4">
-                <h2 class="text-lg font-semibold text-gray-800 mb-6">Recent Transactions</h2>
+                <x-forms.heading>Recent Transactions</x-forms.heading>
 
                 <div class="space-y-4">
                     <div class="grid grid-cols-12 items-center gap-4 bg-white rounded-lg">
