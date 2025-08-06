@@ -11,7 +11,7 @@
         'title'             => $name,
         'name'              => $name,
         'placeholder'       => is_array($holder) ? '' : $holder,
-        'class'             => 'block w-full p-2.5 bg-custom-light-gray border border-custom-dark-gray rounded-lg block w-full p-2.5 dark:placeholder-gray-400',    
+        'class'             => 'block w-full p-2.5 bg-custom-light-gray border border-light-gray rounded-lg block w-full p-2.5 dark:placeholder-gray-400',    
         'rows'              => 4,
 ];
 @endphp

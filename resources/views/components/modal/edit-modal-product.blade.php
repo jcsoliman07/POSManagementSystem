@@ -6,9 +6,9 @@
 >
     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
 
-        <div class="relative p-4 bg-custom-light-gray rounded-lg shadow">
+        <div class="relative p-8 bg-custom-light-gray rounded-lg shadow">
 
-            <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+            <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 border-gray-300">
                 <x-nav-heading>Edit Product</x-nav-heading>
 
                 <button type="button" 

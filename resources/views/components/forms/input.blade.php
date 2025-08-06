@@ -9,7 +9,7 @@
         'type'  => 'text',
         'id'    => $name,
         'name'  => $name,
-        'class' => 'bg-custom-light-gray border border-custom-dark-gray text-custom-gray text-sm rounded-lg block w-full p-2.5 dark:placeholder-gray-400',
+        'class' => 'bg-custom-light-gray border border-light-gray text-custom-gray text-sm rounded-lg block w-full p-2.5 dark:placeholder-gray-400',
         'placeholder' => $holder,
         'value' => $inputValue,
 ];
