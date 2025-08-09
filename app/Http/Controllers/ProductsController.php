@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Products;
 use Illuminate\Http\Request;
@@ -13,23 +14,37 @@ use Illuminate\Validation\Rules\File;
 class ProductsController extends Controller
 {
     //
+    private const IMAGE_FOLDER = 'logos';
+    private const DISK = 'public';
+
+    private function handleImageUpload(Request $request, ?Products $product = null): ?string
+    {
+        if  ($request->hasFile('image'))
+        {
+            if  ($product && $product->image && Storage::disk(self::DISK)->exists($product->image))
+            {
+                Storage::disk(self::DISK)->delete($product->image);
+            }
+            return $request->file('image')->store(self::IMAGE_FOLDER, self::DISK);
+        }
+
+        return $request->input('existing_image') ?? ($product->image ?? null);
+    }
 
     public function index()
     {
         $products = Products::with('category')->latest()->paginate(10); //Add pagination and eager load category
         $categories = Category::all();
-        // return ProductResource::collection($products); //Return a collection of resources
 
         return view('products.index', compact( 'products','categories'));
     }
 
     public function store(StoreProductRequest $request)
     {
-        //Validate Data to Entry
-        $validatedData = $request->validated(); //Data is already validated
+        $validatedData = $request->validated();
 
         //Store the uploaded image in 'storage/app/public/logos'
-        $logopath = $request->file('image')->store('logos', 'public');
+        $validatedData['image'] = $this->handleImageUpload($request);
 
         //Create and stored validated data
         $product = Products::create([
@@ -37,68 +52,29 @@ class ProductsController extends Controller
             'name'              => $validatedData['product'], // Use validated data
             'description'       => $validatedData['description'], // Use validated data
             'price'             => $validatedData['price'], // Use validated data
-            'image'             => $logopath, // Use validated data
+            'image'             => $validatedData['image'], // Use validated data
         ]);
-
-        //Displaying the HTTP - POST
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => 'Product saved successfully!',
-        //     'data'    => $product
-        // ], 201); // 201 = Created
         
         return redirect('/products')->with('success', "Product added successfully!");
     }
 
 
-    public function update(Request $request, Products $product)
+    public function update(UpdateProductRequest $request, Products $product)
     {   
-        // //Checking if the route is connected and request is processed
-        // dd($request->all());
-
-        // Validate Data Entry
-        $validatedData = $request->validate([
-            'product'           => ['required', 'string', 'max:255', Rule::unique('products', 'name')->ignore($product->id)], //Rule::unique()->ignore() prevents the validation from failing to keep the same product
-            'price'             => ['required', 'numeric', 'min:0'],
-            'category'          => ['required', 'exists:categories,id'], //Connected to the category_id in db
-            'description'       => ['required', 'string'],
-            'image'             => ['nullable', 'file', File::types(['png', 'jpg', 'jpeg'])], //Nullable if uploading new image is optional, and keeping the old image
-            'existing_image'    => ['nullable', 'string'],
-        ]);
-
-        //Check if a new Image was uploaded
-        if($request->hasFile('image')){
-
-            //Delete old image if stored
-            if($product->image && Storage::disk('public')->exists($product->image)){
-                Storage::disk('public')->delete($product->image);
-            }
-
-            $filename = $request->file('image')->store('logos', 'public');
-            $validatedData['image'] = $filename;
-
-        } else {
-            // No new image uploaded — keep the old one
-            $validatedData['image'] = $validatedData['existing_image'] ?? $product->image;
-        }
-
-        //Update the Product Data
+        $validatedData = $request->validated();
+    
+        $validatedData['image'] = $this->handleImageUpload($request, $product);
+        
         $product->update([
-            'category_id' => $validatedData['category'],
             'name'        => $validatedData['product'],
-            'description' => $validatedData['description'],
             'price'       => $validatedData['price'],
+            'category_id' => $validatedData['category'],
+            'description' => $validatedData['description'],
             'image'       => $validatedData['image'],
         ]);
 
-        // //Displaying the HTTP - POST - UPDATE
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => 'Product updated!',
-        //     'data'    => $product
-        // ], 200); // 200 = Ok
+        return redirect()->route('products.index')->with('success', 'Product updated successfully!');
 
-        return redirect('/products')->with('success', "Product updated!");
     }
 
     public function destroy(Request $request, Products $product)
