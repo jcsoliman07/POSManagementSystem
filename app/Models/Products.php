@@ -13,7 +13,9 @@ class Products extends Model
     //
     use HasFactory, Notifiable;
 
-    protected $guarded = [];
+    protected $table = 'products';
+
+    protected $fillable = [ 'category_id', 'name', 'description', 'price', 'image' ];
 
     public function category(): BelongsTo
     {
