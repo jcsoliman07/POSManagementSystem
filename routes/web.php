@@ -30,12 +30,12 @@ Route::middleware(['auth', 'role:admin,super_admin', PreventBackHistory::class])
     Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
     //Category
-    Route::get('/category', [CategoryController::class, 'index']);
-    Route::post('/category', [CategoryController::class, 'store']);
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::post('/categories', [CategoryController::class, 'store']);
     Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 
     //Product
-    Route::get('/products', [ProductsController::class, 'index']);
+    Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
     Route::post('/products', [ProductsController::class, 'store']);
     Route::put('/products/{product}', [ProductsController::class, 'update'])->name('products.update');
 
