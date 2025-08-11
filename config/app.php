@@ -123,4 +123,26 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Autoloaded Service Providers
+    |--------------------------------------------------------------------------
+    */
+    'providers' => [
+        Illuminate\Auth\AuthServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Class Aliases
+    |--------------------------------------------------------------------------
+    */
+    'aliases' => [
+        'App' => Illuminate\Support\Facades\App::class,
+        'Auth' => Illuminate\Support\Facades\Auth::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+    ],
+
 ];
