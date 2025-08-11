@@ -31,9 +31,26 @@ class ProductsController extends Controller
         return $request->input('existing_image') ?? ($product->image ?? null);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = Products::with('category')->latest()->paginate(10); //Add pagination and eager load category
+        $products = Products::with('category')
+                    ->latest()
+                    ->paginate(10); //Add pagination and eager load category
+
+        if ($request->ajax()) {
+            $categories = Category::all();
+            $html = '';
+
+            foreach ($products as $product) {
+                $html .= view('products._single', compact('product', 'categories'))->render();
+            }
+
+            return response()->json([
+                'products'   => $html,
+                'next_page' =>  $products->nextPageUrl()
+            ]);
+        }
+
         $categories = Category::all();
 
         return view('products.index', compact( 'products','categories'));
