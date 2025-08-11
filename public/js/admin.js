@@ -1,3 +1,7 @@
+//DOM Aniamtion
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("fade-in");
+});
 
 //Open Modal Form Function
 function toggleModal(modalId) {
