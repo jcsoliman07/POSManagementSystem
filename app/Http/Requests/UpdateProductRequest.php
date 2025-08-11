@@ -19,7 +19,7 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         /** @var Products $product */
-        $product = $this->route('product');
+        $product = request()->route('product');
         $productId = $product instanceof Products ? $product->id : $product;
 
         return [
