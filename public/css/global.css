@@ -15,14 +15,26 @@
     }
 }
 
+.category-container
+{
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.category-card
+{
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
 .product-container
 {
     opacity: 0;
-    animation: fadeInUp 1s ease forwards;
+    animation: fadeInUp 0.6s ease forwards;
 }
 
 .product-card
 {
     opacity: 0;
-    animation: fadeInUp 1s ease forwards;
+    animation: fadeInUp 0.6s ease forwards;
 }
