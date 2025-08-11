@@ -24,6 +24,33 @@ function closeModal(modalId) {
     modal.classList.add('opacity-0', 'pointer-events-none');
 }
 
+//Load More Products
+document.addEventListener('DOMContentLoaded', () => {
+    const loadMoreBtn = document.getElementById('loadMore');
+    const grid = document.getElementById('productGrid');
+
+    if (!loadMoreBtn || !grid) return;
+
+    loadMoreBtn.addEventListener('click', function () {
+        const url = this.dataset.url;
+        if (!url) return;
+
+        fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+            .then(res => res.json())
+            .then(data => {
+                if (data.products) {
+                    grid.insertAdjacentHTML('beforeend', data.products);
+                }
+                if (data.next_page) {
+                    this.dataset.url = data.next_page;
+                } else {
+                    this.remove();
+                }
+            })
+            .catch(err => console.error('Error loading more products:', err));
+    });
+});
+
 
 //Function to Filter Order date from a dropdown
 function filterOrderData(mode){ //Mode its either dropdown or daterange
@@ -106,43 +133,49 @@ function formatDate(date){
 document.addEventListener('DOMContentLoaded', function(){
     //Access the inject global variable
     const chartData = window.weekSalesChart;
+    const chartElement = document.getElementById('salesChart');
 
-    const label = chartData.map(item => item.date); //Map the days for a week
-    const orderCounts = chartData.map(item => item.order_count); //Map the order count per day in a week
+    if(chartElement && chartData)
+    {
 
-    const salesChart = document.getElementById('salesChart').getContext('2d');
-    new Chart(salesChart, {
-        type: 'line',
-        data:{
-            labels: label,
-            datasets:[{
-                label: 'Order This Week',
-                data: orderCounts,
-                borderColor: 'yellow',
-                backgroundColor: 'rgba(255, 251, 232, 1)',
-                fill:true,
-                tension:0.3
-            }]
-        },
-        options:{
-            responsive: true,
-            scales:{
-                x:{
-                    title: {
-                        display: true,
-                        text: 'Date'
-                    }
-                },
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Order Count'
+        const label = chartData.map(item => item.date); //Map the days for a week
+        const orderCounts = chartData.map(item => item.order_count); //Map the order count per day in a week
+
+        const salesChart = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesChart, {
+            type: 'line',
+            data:{
+                labels: label,
+                datasets:[{
+                    label: 'Order This Week',
+                    data: orderCounts,
+                    borderColor: 'yellow',
+                    backgroundColor: 'rgba(255, 251, 232, 1)',
+                    fill:true,
+                    tension:0.3
+                }]
+            },
+            options:{
+                responsive: true,
+                scales:{
+                    x:{
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Order Count'
+                        }
                     }
                 }
             }
-        }
-    });
+        
+        });
+    }
 
 });
 
@@ -151,42 +184,46 @@ document.addEventListener('DOMContentLoaded', function(){
 document.addEventListener('DOMContentLoaded', function(){
 
     const chartData = window.paymentChart;
+    const chartElement = document.getElementById('salesChart');
 
-    const paymentMethodChart = document.getElementById('paymentChart').getContext('2d');
-    new Chart(paymentMethodChart,{
-        type: 'doughnut',
-        data:{
-            labels: chartData.labels,
-            datasets:[{
-                label: 'Payment Method',
-                data: chartData.data,
-                backgroundColor: [
-                    '#FF6B45',
-                    '#FFAB05',
-                ],
-                borderWidth: 0,
-                hoverOffset: 8,
-            }]
-        },
+    if (chartElement && chartData) 
+    {
 
-        options:{
-            responsive: true,
-            cutout: '70%',
-            plugins:{
-                legend:{
-                    position: 'bottom',
-                    labels:{
-                        usePointStyle: true,
-                        pointStyle: 'circle',
-                        boxWidth: 6,
-                        boxHeight: 6,
-                        padding: 20,
+        const paymentMethodChart = document.getElementById('paymentChart').getContext('2d');
+        new Chart(paymentMethodChart,{
+            type: 'doughnut',
+            data:{
+                labels: chartData.labels,
+                datasets:[{
+                    label: 'Payment Method',
+                    data: chartData.data,
+                    backgroundColor: [
+                        '#FF6B45',
+                        '#FFAB05',
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 8,
+                }]
+            },
+
+            options:{
+                responsive: true,
+                cutout: '70%',
+                plugins:{
+                    legend:{
+                        position: 'bottom',
+                        labels:{
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            boxWidth: 6,
+                            boxHeight: 6,
+                            padding: 20,
+                        }
                     }
                 }
             }
-        }
-    });
-
+        });
+    }
 
 })
 
