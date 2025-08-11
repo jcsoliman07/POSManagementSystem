@@ -15,6 +15,12 @@
     }
 }
 
+.product-container
+{
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
 .product-card
 {
     opacity: 0;

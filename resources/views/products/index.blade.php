@@ -3,7 +3,7 @@
     <x-wrapper>
 
         <!-- Main Content -->
-        <main class="container mx-auto py-6 px-4">
+        <main class="container mx-auto py-6 px-4 product-container">
             <!-- Categories Navigation -->
             <div class="mb-8 overflow-x-auto">
                 <div class="flex space-x-4 p-2">
