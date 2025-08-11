@@ -18,6 +18,8 @@ class ProductsFactory extends Factory
     public function definition(): array
     {
 
+        static $index = 0;
+
         //Pre defined factory data
         $products = [
             ['name' => '1-pc Chickenjoy with Rice', 'category' => 'Chickenjoy', 'price' => 89.00, 'description' => 'Crispy fried chicken served with steamed rice.'],
@@ -44,7 +46,11 @@ class ProductsFactory extends Factory
             ['name' => 'Jolly Spaghetti w/ Fries & Drink', 'category' => 'Spaghetti', 'price' => 120.00, 'description' => 'Spaghetti meal with fries and a drink.'],
         ];
 
-        $product = $this->faker->randomElement($products);
+        if ($index >= count($products)) {
+            throw new \Exception('No more products available to create.');
+        }
+
+        $product = $products[$index++];
         $category = Category::firstOrCreate(['name' => $product['category']]);
 
         return [
